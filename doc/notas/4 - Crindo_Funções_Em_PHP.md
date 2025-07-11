@@ -75,3 +75,29 @@ No caminho triste! ou seja, no catch(Throwable $e){instruções}, temos o seguin
 
 - ;: 
     O ponto e vírgula marca o fim da instrução
+
+
+## COlocando parâmetros na função
+
+Exemplo de função com parâmetros: 
+
+    function calc_velocidade_luz($c,$n,$contexto='ar'){
+            try{
+                //$velocidade_luz_no_meio = $v;
+                $velocidade_luz_vacuo = $c;
+                $indicie_refracao_meio = $n;
+
+                $velocidade_luz_no_meio = ($velocidade_luz_vacuo/$indicie_refracao_meio);   
+
+                $resultado = $velocidade_luz_no_meio;
+
+                return "<strong><p>O resultado da velocidade da luz no meio de acordo com o contexto '" . $contexto . "', Morty, é: " . $resultado. "</p></strong>";
+
+            }catch(Throwable $e){
+                
+                echo "Ocorreu um erro: " . $e->getMessage();
+                error_log("Erro na função saudacao: " . $e->getMessage());
+            }
+        }
+
+Observação: Quando você coloca o parâmtro na função, esses parâmtros obrigatóriamente devem ser colocados para não dar erro

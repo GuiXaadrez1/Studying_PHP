@@ -7,12 +7,14 @@
         <title> Aprendendo Include e Require</title>
     </head>
     <body>
+        <!-- Para chamar uma função, não esquecer de chamar ela -->
         <?php 
-            include 'funcoes.php'; 
-            echo saudacao()
+            include_once 'funcoes.php'; 
+            echo saudacao(); 
         ?>
         <a href="http://localhost/Studying_PHP/codes/version_php.php">Clique aqui para obter informações do php embutido no xampp</a>
         <?php
+            include_once 'funcoes.php';
             include 'config.php';
             require 'first.php';
             echo("<p> acima está  o nosso include! </p>");
@@ -23,7 +25,9 @@
                     <li> Warning: include(cofig.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Studying_PHP\codes\Include_vs_Require.php on line 12 </li>
                     <li> Warning: include(): Failed opening 'cofig.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Studying_PHP\codes\Include_vs_Require.php on line 12  </li>
                 </ul>
-            ")    
+            ");
+        
+            echo calc_velocidade_luz( 299792.488 , 1.000293);
         ?>
         <p>SÓ PARA DEIXAR CLARO!!! PODEMOS MISTURAR  SCRIPTS PHP COM HTML E VISE-VERSA</p>
         <p>SCRIPTS PHP TEM SUPORTE PARA ISSO.</p>
@@ -42,7 +46,7 @@
             ");
         ?>
         <p>QUANDO OU NÃO DEVO USAR INCLUDE E REQUIRE: </p>
-        <table border = 2> <!--É o container principal que define que o conteúdo dentro será organizado em linhas e colunas. Delimita todo o bloco de dados tabulares. -->
+        <table border = 1> <!--É o container principal que define que o conteúdo dentro será organizado em linhas e colunas. Delimita todo o bloco de dados tabulares. -->
             <thead> <!-- Cabeçalho da Tabela. Agrupa linhas de cabeçalho (normalmente <th>). Usado para identificar títulos das colunas. Facilita estilização e acessibilidade. -->
                 <tr> <!-- Table Row (linha da tabela). Cada <tr> representa uma linha inteira. Agrupa células em linha única — pode conter <td> ou <th>. -->
                     <th>Include</th> <!-- Table Header Cell (célula de cabeçalho). É uma célula de título. O conteúdo é exibido em negrito e centralizado por padrão. Usado dentro de <tr>. -->
