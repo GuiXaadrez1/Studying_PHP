@@ -7,7 +7,13 @@
         <title>Primeiro Programa em PHP</title> <!-- Título da página -->
     </head>
     <body>
-        <p>Sugiro que utilize F12 para ver as mensagens que coloquei na função echo() do PHP</p>
+        <p>Esse arquivo.php vai servir como base para entender o require!</p>
+        <?php
+            echo("Se você está vendo essa mensagem é porque o require deu certo seu otário! Fique feliz por isso Morty.");
+            echo("<br>");
+            echo("<img src='/Studying_PHP/img/rick_img.jpg' />")
+        ?>
+        <p>Sugiro que utilize F12 para ver as mensagens que coloquei em um script JavaScript na função console.log() dentro da função echo() do PHP</p>
         <?php 
             echo("<script> console.log('Aqui está o nosso primeiro programa em PHP!'); </script>");
             echo("<script> console.log('Você não está vendo, mas em F12, esse é o meu console.log(), print(), System.out.println(), printf() em PHP, mais conhecido como echo().'); </script>");
