@@ -28,6 +28,7 @@
             ");
         
             echo calc_velocidade_luz( 299792.488 , 1.000293);
+            echo('<a href ="http://localhost/Studying_PHP/codes/index.php">Clique Morty, Bora Poha! Clique logo aqui, Morty!</a>');
         ?>
         <p>SÓ PARA DEIXAR CLARO!!! PODEMOS MISTURAR  SCRIPTS PHP COM HTML E VISE-VERSA</p>
         <p>SCRIPTS PHP TEM SUPORTE PARA ISSO.</p>
