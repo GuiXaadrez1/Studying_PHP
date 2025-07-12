@@ -9,7 +9,7 @@ Recomendo que utilize o pesquisar (cntrl + f) para o que deseja.
 
 ## 📌 Índice
 
-- [Strings](#strings)
+- [Strings](#Strings)
 - [Arrays](#arrays)
 - [Datas e Hora](#datas-e-hora)
 - [Arquivo e I/O](#arquivo-e-io)
