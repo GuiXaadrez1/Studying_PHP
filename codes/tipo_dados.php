@@ -43,7 +43,7 @@
     
     function reduzirTexto( string $texto, string $continue = "..."){
 
-        $limite = 120; # vamos permitir apenas 100 caracteres
+        $limite = 120; # vamos permitir apenas 120 caracteres
 
         # fazendo validação
         try{

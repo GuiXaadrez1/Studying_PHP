@@ -1,10 +1,11 @@
 <?php
-    declare(strict_types=1);
+    declare(strict_types=1); // ativando tipagem explícita
     include_once 'tipo_dados.php';
     include_once 'phpdoc.php';
+    include_once 'filtros.php';
 
     $resultado = somarinteiros(3000, 5000);
-    $comentario = "Então Morty, você não vai conseguir ver esse comentário por inteiro porque a função reduzirTexto não vai deixar, fiz isso porque vpcê não gosta de explicações prolongadas..."; 
+    $comentario = "Então Morty, você não vai conseguir ver esse comentário por inteiro porque a função reduzirTexto não vai deixar, fiz isso porque você não gosta de explicações prolongadas..."; 
     // $comentario = 10 //para fazer o teste;    
 ?>
 <DOCTYPE html>
@@ -23,8 +24,16 @@
         <p><?= is_int($comentario); ?></p>
         <p><?= reduzirTexto($comentario); ?></p>
         <p><?= funcaoQualquer(); ?></p>
-        <p>Testando essa função com o operador ternário, o valor lógico (tabela lógica) do resultado é: <?=funcaoOperadorTernario()?></p>
-  </body>
+        <p>Testando essa função com o operador ternário, o valor lógico (tabela lógica) do resultado é: <?=funcaoOperadorTernario()?></p><br>
+        <p>Esse Short Open Tag é muito bom Morty! Saca Só:<br><?= formatar_value()?><br>Acima está um número Padrão formatado pela nossa função number_format</p>
+        <br>
+        <p><?=formartar_number()?></p>
+        <!--<p><#?= fusioHorarioPadrão()?></p>-->
+        <p><?=contarTempo('2025-07-14 17:59:0')?></p>
+        <p>Esse email é válido? Se retornar 1, sim, se retornar 0 é inválido, O RESULTADO É: <?=validarEmail("guix1delas@gmail.com")?> </p>
+        <p>Esse url é válida? Se retornar 1, sim, se retornar 0 é inválido, O RESULTADO É: <?=validarUrl("https://localhost:8080/admin")?> </p>
+        <p>Realizando Teste do nosso Validador de URL Personalizado: <?=var_dump(validarUrlPersonalizada("https://localhost:8080/admin.administrador"))?> </p>
+    </body>
 </html>
 
 <?php
