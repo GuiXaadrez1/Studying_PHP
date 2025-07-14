@@ -1,6 +1,7 @@
 <?php
     declare(strict_types=1);
     include_once 'tipo_dados.php';
+    include_once 'phpdoc.php';
 
     $resultado = somarinteiros(3000, 5000);
     $comentario = "Então Morty, você não vai conseguir ver esse comentário por inteiro porque a função reduzirTexto não vai deixar, fiz isso porque vpcê não gosta de explicações prolongadas..."; 
@@ -19,8 +20,10 @@
         <img src = "/Studying_PHP/img/Morty_Rick.png" width="200" height="200"/>
         <h3>Morty essa Página foi criada para podermos brincar com funções e tipo de dados em PHP</h3>
         <p>Morty o Resultado da soma da função importada do arquivo tipo_dado é: <b><?= $resultado ?></b></p>
-        <p><?= is_int($comentario) ?></p>
-        <p><?= reduzirTexto($comentario) ?></p>
+        <p><?= is_int($comentario); ?></p>
+        <p><?= reduzirTexto($comentario); ?></p>
+        <p><?= funcaoQualquer(); ?></p>
+        <p>Testando essa função com o operador ternário, o valor lógico (tabela lógica) do resultado é: <?=funcaoOperadorTernario()?></p>
   </body>
 </html>
 

@@ -49,7 +49,7 @@
         try{
             if(is_string($texto)){
                 // trim remove espaços no iníco e no fim de uma string
-                $textoLimpo = trim($texto);
+                $textoLimpo = trim(strip_tags($texto)); # a função strip_tags é responsável por remover todas as tags html que vinher do nosso front-end
                 $quantidade_string = mb_strlen($textoLimpo);
 
                 # fazendo comparação_vídeo_aula
