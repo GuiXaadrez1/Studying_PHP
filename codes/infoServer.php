@@ -7,6 +7,8 @@
 
     // variável super global $_SERVER para obter iinformações
 
+    echo ("<a href = 'http://localhost/Studying_PHP/codes/index.php'>Voltar para a página index</a><hr>");
+
     var_dump($_SERVER);
 
 
@@ -69,5 +71,7 @@
     };
 
     echo url_server_rote($caminho_rota='Evil_Morty_admin') . "<hr>";
+
+    echo ("<a href = 'http://localhost/Studying_PHP/codes/Array.php'>Ir para a página de Manipulação de Array</a><hr>");
 
 ?>
