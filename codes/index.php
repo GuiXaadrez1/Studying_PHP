@@ -20,6 +20,8 @@
         <h3>EU VIREI UM PICLES MORTY</h3>
         <img src = "/Studying_PHP/img/Morty_Rick.png" width="200" height="200"/>
         <h3>Morty essa Página foi criada para podermos brincar com funções e tipo de dados em PHP</h3>
+        <p>CLIQUE AQUI MORTY! PARA TER ACESSO AS INFORMAÇÕES DO SERVER:<a href = 'http://localhost/Studying_PHP/codes/infoServer.php'>CLIQUE AQUI<a></p>
+        <p>URL_PRODUCAO do nosso site definida por uma constante: <a href="<?=URL_PRODUCAO?>">Clique aqui</a> , Não esqeuça de olhar bem a URL</p>
         <p>Morty o Resultado da soma da função importada do arquivo tipo_dado é: <b><?= $resultado ?></b></p>
         <p><?= is_int($comentario); ?></p>
         <p><?= reduzirTexto($comentario); ?></p>
@@ -32,7 +34,7 @@
         <p><?=contarTempo('2025-07-14 17:59:0')?></p>
         <p>Esse email é válido? Se retornar 1, sim, se retornar 0 é inválido, O RESULTADO É: <?=validarEmail("guix1delas@gmail.com")?> </p>
         <p>Esse url é válida? Se retornar 1, sim, se retornar 0 é inválido, O RESULTADO É: <?=validarUrl("https://localhost:8080/admin")?> </p>
-        <p>Realizando Teste do nosso Validador de URL Personalizado: <?=var_dump(validarUrlPersonalizada("https://localhost:8080/admin.administrador"))?> </p>
+        <p>Realizando Teste do nosso Validador de URL Personalizado com a CONSTANTE definida por padrão: <?=var_dump(validarUrlPersonalizada())?> </p>
     </body>
 </html>
 
