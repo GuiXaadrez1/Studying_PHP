@@ -23,7 +23,7 @@ use function PHPSTORM_META\elementType;
      * @return - Retorna uma string com o resultado da contagem
     */
 
-    function nucleotideo_seq($seq_genoma):string{
+    function nucleotideo_seq(string $seq_genoma):string{
         try{
             
             $validacao_string = is_string($seq_genoma)? true:false;
