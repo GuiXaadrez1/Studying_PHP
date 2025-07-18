@@ -20,17 +20,43 @@
     // /vrau+a/ -> voa (não entra), vrauaaa (entra), 
 
 
-    // Crie duas funções usando os dois tipos de quantificadores
+    // Crie duas funções usando os dois tipos de quantificadores em seus respectivos regex.
+
+    $texto1 = "aaaoooooobaaa baaatmen but bot buta";
 
     function filtrar_string1(string $string): string{
+        try{
+            if(is_string($string)){
+                $regex = "/([a]{3}[o]*b[a]{3})/";
+                preg_match_all($regex,$string,$matches);
+                return implode(', ', $matches[0]);
 
+            }else{
+                return "Não fó possível realizar essa filtragem.";
+            };
+        }catch(Throwable $e){
+            return "Error " . $e->getMessage();
+        };
     };
 
-   function filtrar_string2(string $string): string {
+    echo filtrar_string1($texto1);
 
-   };
+    $texto2 = "vrau vraaaau vrum baaatmen but bot buta";
+
+    function filtrar_string2(string $string): string{
+        try{
+            if(is_string($string)){
+                $regex = "/vr[a]+u/";
+                preg_match_all($regex,$string,$matches);
+                return implode(', ', $matches[0]);
+            }else{
+                return "Não fó possível realizar essa filtragem.";
+            };
+        }catch(Throwable $e){
+            return "Error " . $e->getMessage();
+        };
+    };
 
 
-
-
+    echo "<br>" . filtrar_string2($texto2);
 ?>
