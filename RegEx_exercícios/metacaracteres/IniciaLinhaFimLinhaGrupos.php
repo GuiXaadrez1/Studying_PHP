@@ -18,7 +18,7 @@
     // exemplo: /\.$/ -> Aqui o regex vai retornar todos os parágrafos que terminam com ponto final  (A string deve terminar com ponto final)
 
     // Classes de caracteres ( ou Grupo de Caracteres)
-    // Uma classe de caracteres define um conjunto de possíveis caracteres que uma posição na string pode ter.
+    // Uma classe de caracteres define um conjunto de possíveis caracteres que uma posição na string pode ter, lembrando que é nesta posição! _ _ _ _ 
     // Exemplo: /^[a-z]\.$/ -> Significa A string deve começar com uma letra minúscula (a–z), 
     // seguida imediatamente por um ponto final, e terminar logo depois disso. para serem retornados pelo nosso Regex.
     // abaixo vai uma tabela com nossas Classes de caractres
