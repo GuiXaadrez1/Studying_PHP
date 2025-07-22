@@ -2,8 +2,6 @@
     // ativando tipagem explicíta!
     declare(strict_types=1);
 
-use function PHPSTORM_META\elementType;
-
     /* 
         Esse arquivo.php tem como principal objetivo treinar os metas caracteres de escape para espaço: \s
         E também vamos trabalhar com o Metacaracter paraqualquer caractere único é o ponto final ! 
