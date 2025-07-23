@@ -2,6 +2,9 @@
     // ativando tipagem explicíta!
     declare(strict_types=1);
 
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
+
     /* 
         Esse arquivo.php tem como principal objetivo treinar os metas caracteres de escape para espaço: \s
         E também vamos trabalhar com o Metacaracter paraqualquer caractere único é o ponto final ! 

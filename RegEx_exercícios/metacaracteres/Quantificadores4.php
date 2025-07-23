@@ -2,6 +2,9 @@
     // ativando tipagem explícita no php
     declare(strict_types=1);
 
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
+
     // Vamos trabalhar com o Metacaracter Fominha e Preguiçosa...
 
     // O meta caracter asteristico * ele vai selecionar todo mundo ou não selecionar

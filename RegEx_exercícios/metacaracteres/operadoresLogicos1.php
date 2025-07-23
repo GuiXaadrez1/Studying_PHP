@@ -1,5 +1,8 @@
 <?php
     
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
+
     // Aqui basicamente vai entrar a nossa tabela verdade do racicíonio lógico
     // Basicamente vamos ter uma matématica booleana aqui
 

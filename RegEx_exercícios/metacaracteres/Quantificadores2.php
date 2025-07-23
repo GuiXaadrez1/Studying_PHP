@@ -2,6 +2,9 @@
     // ativando tipagem explícita! 
     declare(strict_types=1);
 
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
+
     // Explicação Específicas de Quantificadores
 
     // também chamados de quantificadores! 

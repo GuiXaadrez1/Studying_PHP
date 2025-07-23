@@ -1,6 +1,9 @@
 <?php
     declare(strict_types=1);
 
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
+
     // Principais simbolos dos Metas Caracteres, não são literais, mas controlam
     // o comportamente do literais.
 

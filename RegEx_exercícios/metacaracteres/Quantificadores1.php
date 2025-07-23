@@ -3,6 +3,9 @@
 
     declare(strict_types = 1);
 
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
+
     // O obejtivo deste arquivo.php é entender o que seria os metacaracter de repetição
     // também chamados de quantificadores! 
     // {} -> Chaves são os nossos quantificadores

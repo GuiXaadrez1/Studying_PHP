@@ -2,6 +2,8 @@
 
     declare(strict_types=1); // realizando declaração explícita
 
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
 
     // o objetivo deste arquivo é mostrar os caracteres de escape
 

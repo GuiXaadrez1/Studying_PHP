@@ -3,6 +3,9 @@
     // ativando a tipagem explícita! 
     declare(strict_types = 1);
 
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
+
     // Este arquivo.php visa explicar os MetaCaracteres especiais de quantificação + e * 
 
     // Eles tem um funcionamento bem parecido com o MetaCaracter ?, ou seja, aquele  caracter anterior a ele

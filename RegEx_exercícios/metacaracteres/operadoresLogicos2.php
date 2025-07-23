@@ -2,6 +2,9 @@
     // ativando tipagem explícita!
     declare(strict_types=1);
 
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
+
     // O objetivo deste arquivo.php é aprendermos usar negaçoes com Regex
 
     // Podemos usar o Metacaracter de início ^ dentro de uma Classe de caracteres

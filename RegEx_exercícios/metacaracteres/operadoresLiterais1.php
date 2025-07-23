@@ -3,6 +3,8 @@
     // deixando tipagem explícita!
     declare(strict_types=1);
 
+    // RECOMENDO QUE LEIA OS ARQUIVOS NO CAMINHO:
+    // C:\xampp\htdocs\Studying_PHP\RegEx_exercícios\anotações
 
     // O objetivo deste arquivo.php é usar as funções nativas que facilitam manipulação com Regex
     // também tem o objetivo de realizar e entender formas de expressões regulares e seus metacaracteres
