@@ -116,3 +116,122 @@ Expressões complexas com mesmo texto repetido em locais diferentes.
 | `\b(\w+)\s\1\b` | Palavra + espaço + mesma palavra               |
 
 **observação:**  Lembrando que se usar a classe de caracteres \B -> Não tem limite de palavra
+
+## Específicação sobre a classe de caracter \b:
+
+### O que é o \b?
+
+- O \b em regex significa "limite de palavra" (word boundary).
+
+- É um ponto no texto onde a transição acontece entre:
+
+- Um caractere de palavra (word character, que o regex entende como \w)
+e
+- Um caractere que NÃO é palavra (não-word character, \W), ou o começo/fim da string.
+
+Siginifica:
+
+    Um ponto onde um caractere de palavra (\w = [A-Za-z0-9_]) encosta em um caractere que não é palavra (\W).
+
+### O que é um caractere de palavra (\w)?
+
+No padrão PCRE usado no PHP, \w equivale a:
+
+- Letras maiúsculas e minúsculas A-Z, a-z
+
+- Dígitos 0-9
+
+- O underline _
+
+ou seja: 
+
+```regex
+    \w == [A-Za-z0-9_]
+```
+
+### Como funciona o \b na prática?
+
+\b não casa nenhum caractere em si, ele casa uma posição entre caracteres.
+
+Essa posição precisa ser entre:
+
+- Um caractere de palavra (\w)
+
+- E um caractere que não é palavra (\W)
+
+- Ou início/fim da string.
+
+### Exemplos práticos
+
+Considere o texto:
+```bash
+    "foo bar"
+```
+
+Explicação:
+
+\bfoo\b casa "foo" porque:
+
+- Antes do f tem o início da string (limite entre nada e f, que é \w)
+
+- Depois do o tem um espaço (não \w)
+
+- \bbar\b casa "bar" pelo mesmo motivo.
+
+### Onde o \b NÃO casa?
+
+Dentro de uma palavra:
+
+"foobar" —
+
+Aqui, \bfoo\b não casa, porque depois do o tem b, que é \w — então não é limite.
+
+Posição entre dois caracteres de palavra não é limite.
+
+### O que não é \b?
+
+Não é um caractere, não consome nada da string.
+
+Não é um espaço, não é um símbolo.
+
+É apenas uma posição entre caracteres.
+
+### E quanto a caracteres especiais, como parênteses?
+
+Parênteses ( e ) não são caracteres de palavra (\w).
+
+Então, para o regex:
+
+```regex
+    \b(
+```
+
+O limite \b só pode existir se o caractere antes for \w e o próximo for não-\w (ou vice-versa).
+
+Mas aqui temos o caractere (, que não é \w. Portanto, não existe limite de palavra antes de (.
+
+## Como usar \b corretamente?
+Use \b envolvendo caracteres que são de palavra, como:
+
+- Números puros
+
+- Palavras (letras/dígitos)
+
+- Underscore _
+
+Exemplo:
+
+```regex
+    \b12345\b
+```
+Casa o número 12345 isolado, mas não em 123456.
+
+### Conclusão sobre a classe de caracter \b
+
+\b casa posição entre caracteres.
+
+Essa posição é entre caractere de palavra (\w) e não palavra (\W).
+
+Não casa antes de símbolos como (, ), -, etc., pois eles são \W.
+
+Por isso, para detectar números com parênteses, você não deve usar \b em volta dos parênteses, mas sim em volta dos dígitos.
