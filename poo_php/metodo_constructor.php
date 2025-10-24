@@ -18,7 +18,7 @@
      * lembre-se: o método construtor sempre será público
      * 
      *@param string $nombre
-     *@param int #nivel_palea
+     *@param int $nivel_palea
      */
     class Saiyajin
     {   
