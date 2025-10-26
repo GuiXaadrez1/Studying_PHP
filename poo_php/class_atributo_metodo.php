@@ -42,7 +42,7 @@
         public function saludar(string $text ="Goku"): string
         {
             // concatenando uma string com o atributo da classe
-            return "Hola soy " . $text;
+            return "Hola soy " . $text = $this->nombre;
     
             // $this-> serve para acessar atributos ou métodos
             // da instância atual da classe
@@ -75,17 +75,36 @@
 
     // visualizando todos os atributos que existem no objeto $goku
     var_dump($goku);
+    echo "<br>";
 
     // acessando os métods, atributos do objeto com o símbolo ->
     echo($goku->nivel_pelea);
+    echo "<br>";
+    
     echo($goku->nombre); 
-    echo($goku->saludar($this->nombre)); 
-    echo($goku->nivelDePelea($this->nivel_pelea ));
+    echo "<br>";
+    
+    //acessando os métodos do objeto $goku e atribuindo valores aos parâmetros
+    echo($goku->saludar($goku->nombre)); 
+    echo "<br>";
+    
+    //acessando os métodos do objeto $goku e atribuindo valores aos parâmetros acessando os atributos
+    echo($goku->nivelDePelea($goku->nivel_pelea ));
+    echo "<br>";
+    
+    // acessando o método que concatena outros métodos
     echo($goku->concatenarMetodo());
-
+    echo "<br>";
+    
     // instânciando outro objeto da classe Saiyajin
     $vegeta = new Saiyajin();
+    echo "<br>";
 
+    // atribuindo valores aos atributos do objeto $vegeta
+    $vegeta->nombre = "Vegeta";
+    $vegeta->nivel_pelea = 4000;
+
+    // visualizando todos os atributos que existem no objeto $vegeta
     var_dump($vegeta);
-
+    echo "<br>";
 ?>

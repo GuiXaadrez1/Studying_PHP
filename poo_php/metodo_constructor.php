@@ -37,11 +37,24 @@
      */
     class Saiyajin
     {   
+
+        // definindo atributos públicos 
+        public $nombre;
+        public $nivel_pelea;
+
         // criando um método construtor -> método mágico
-    
+        // sempre começa com dois underlines __
+        // se os atributos não forem passados, serão atribuídos valores padrão
         function __construct(string $nombre = "Goku", int $nivel_pelea = 1500){
             $this ->nombre = $nombre;
             $this ->nivel_pelea = $nivel_pelea;
+        }
+
+
+        public function saludar(string $text = "Hola soy "): string
+        {   
+            // concatenadno o texto que passamos como parâmetro com o atributo da classe
+            return $text.$this->nombre;
         }
 
         public function nivelDePelea(int $palea = 0):string{
@@ -65,6 +78,50 @@
         }
     }
 
+    // instânciando um objeto da classe Saiyajin
+
     $Gohan = new Saiyajin("Gohan",3000);
 
-?>
+    // visualizando todos os atributos que existem no objeto $Gohan
+
+    var_dump($Gohan);
+
+    //echo($Gohan->nivelDePelea($Gohan->nivel_pelea));
+
+    // acessando os métods, atributos do objeto com o símbolo "seta" ->
+
+    echo "<br>";
+    echo $Gohan->nombre;
+    echo "<br>";
+    echo $Gohan->nivel_pelea;
+
+    // Agora instanciando um atributo com valor padrão
+    echo("<br><br>");
+    $goku = new Saiyajin();
+
+    // visualizando todos os atributos que existem no objeto $goku
+    var_dump($goku); 
+    echo "<br>";
+    echo $goku->nombre;
+    echo "<br>";
+    echo $goku->nivel_pelea;
+
+    // mudando o nível de poder do Goku
+    $goku->nivel_pelea = 5000;
+    echo "<br> Nivel de pelea de Goku modificado: " . $goku->nivel_pelea;
+
+    // acessando os métodos do objeto $goku
+    echo "<br>";
+    echo($goku->saludar("Hola soy "));
+
+
+    $vegeta = new Saiyajin("Vegeta",4000);
+    echo "<br>";
+
+    echo($vegeta->saludar("Hola soy "));
+    echo "<br>";
+
+    $gohan = new Saiyajin("Gohan",3000);
+    echo($gohan->saludar());
+
+?>  
