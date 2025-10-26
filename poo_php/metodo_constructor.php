@@ -38,9 +38,9 @@
     class Saiyajin
     {   
 
-        // definindo atributos públicos 
-        public $nombre;
-        public $nivel_pelea;
+        // definindo atributos protegidos
+        protected $nombre;
+        protected $nivel_pelea;
 
         // criando um método construtor -> método mágico
         // sempre começa com dois underlines __
@@ -49,7 +49,6 @@
             $this ->nombre = $nombre;
             $this ->nivel_pelea = $nivel_pelea;
         }
-
 
         public function saludar(string $text = "Hola soy "): string
         {   
@@ -61,9 +60,8 @@
             return $this->nombre." tiene un nivel de pelea de: ".(string) $palea;
         }
 
-        public function tranfoming():void
-        {
-            echo "Se transforma en Super Saiyajin!!!";
+        public function aumentarElNivelPalea(int $agrandar = 20){
+            return 'Ampliando poder em: '. $agrandar .' vezes. '. ' O atual poder é de: '. $this->nivel_pelea*$agrandar;
         }
 
         public function atacar(): void
@@ -71,15 +69,15 @@
             echo "Kamehameha!!!";
         }
 
-
         public function defender(): void
         {
-            echo "Haaaaaaa!!!";
+            echo "Defense! Defense! Defense!";
         }
     }
 
     // instânciando um objeto da classe Saiyajin
 
+    /*
     $Gohan = new Saiyajin("Gohan",3000);
 
     // visualizando todos os atributos que existem no objeto $Gohan
@@ -124,4 +122,5 @@
     $gohan = new Saiyajin("Gohan",3000);
     echo($gohan->saludar());
 
+    */
 ?>  
