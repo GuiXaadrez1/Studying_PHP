@@ -51,7 +51,6 @@ require_once 'metodo_constructor.php';
         }
     }
 
-
     $goku = new SuperSaiyajin('Goku',1500,'raiva',true);
 
     echo($goku->tranfoming());
