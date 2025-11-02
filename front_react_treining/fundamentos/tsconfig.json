@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    /* 1. Configurações de Target e Módulos (Modernas) */
+    // Define o código JavaScript de saída para ser compatível com as últimas versões do EcmaScript (ES2020)
+    "target": "es2020",
+    
+    // Define como os módulos são resolvidos e emitidos (ideal para bundlers modernos como o Webpack usado pelo CRA)
+    "module": "esnext",
+    "moduleResolution": "bundler", 
+    
+    // Inclui tipos de biblioteca para o ambiente do navegador e recursos modernos
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+
+    /* 2. Configurações de React e JSX */
+    // Usa o novo runtime do React (sem a necessidade de 'import React from "react"' nos seus arquivos)
+    "jsx": "react-jsx", 
+
+    /* 3. Modo Estrito e Segurança (Recomendação da Microsoft) */
+    // ESSENCIAL: Habilita todas as opções de verificação de tipo estrita.
+    "strict": true, 
+    
+    // Garante que a capitalização de nomes de arquivos e módulos seja consistente.
+    "forceConsistentCasingInFileNames": true, 
+    
+    // Permite que módulos ES6 importem módulos CommonJS (compatibilidade).
+    "esModuleInterop": true, 
+    
+    // Garante que cada arquivo seja tratado como um módulo, mesmo que não tenha exports/imports.
+    "moduleDetection": "force", 
+    
+    // Permite que o TypeScript compreenda e resolva módulos JSON.
+    "resolveJsonModule": true,
+    
+    // Permite arquivos .js/.jsx no seu projeto sem erros.
+    "allowJs": true, 
+
+    /* 4. Configurações de Compilação e Build */
+    // CRUCIAL: Diz ao TypeScript para NÃO gerar arquivos .js.
+    // O 'react-scripts' (Webpack) fará isso, e o TS será usado apenas para verificação de tipo.
+    "noEmit": true, 
+
+    // Ignora a verificação de tipo em arquivos de bibliotecas (node_modules) para agilizar o build.
+    "skipLibCheck": true, 
+    
+    // Descomente se precisar de Source Maps para debug
+    // "sourceMap": true, 
+    
+    // Descomente se for usar o @types/react 19.3.0+
+    // "verbatimModuleSyntax": true 
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
