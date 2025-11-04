@@ -1,18 +1,32 @@
-// importamos o nosso componente princiapl aqui 
-// colocamos para renderizar com o root no index.html em public
-
+// Importando a biblioteca react
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+
+// importando arquivos estáticos ou de estilização
+import './logo.svg'
+
+// importando o arquivo index.css referente a nossa main.tsx/index.tsx
+import './index.css'
+
+// importando o componete padrão criado pelo react mas que foi personalizado neste projeto
+//import App from './App';
+
+// importando página personalizada da módulo home
+import Home from './pages/home/index';
+
+// não sei o que é 
 import reportWebVitals from './reportWebVitals';
 
+// root variável que cria um DOM virtual ao qual contém nossa página principal para ser 
+// renderizada, essa variável comporta um objeto ReactDOM
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+    {/*   comentando componete <App/> */} 
+    <Home/>
   </React.StrictMode>
 );
 

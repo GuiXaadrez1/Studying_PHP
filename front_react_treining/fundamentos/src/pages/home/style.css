@@ -1,0 +1,43 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    margin: 25px 50px;
+    padding: 15px 15px; 
+    justify-content: center;
+    align-items: center;    
+    /*background-color: #000;*/
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+p{  
+    color: white;
+    font-size: large;
+    font-weight: 600;
+    text-align: center;
+}
+
+.cardsList{
+    display:none
+}
+
+h3{
+    margin: 10px 10px;
+    color: white;
+}
+
+form input{
+    margin: 5px 0;
+    padding:5px 5px;
+}
+
+form button{
+    margin: 10px 80px;
+    padding: 10px 5px;
+    border-radius: none;
+    border-radius: 30px;
+}
