@@ -5,16 +5,48 @@
 import React from 'react';
 import { JSX } from "react";
 
-import logo from './logo.svg';
+// import logo from '../../assets/logo.svg';
 
 import './style.css';
 
-// criando um componete que será renderizado pela página indez.tsx
+
+
+// Criando uma interface para materializar um objeto Usuário
+interface User{
+  id:number,
+  name:string,
+  idade:number,
+  email:string,
+}
+
+// criando um componete que será renderizado pela página index.tsx
 export default function Home():JSX.Element{
+  
+  // Criando um array de objetos User
+  const users: User[] = [
+    {
+      id: 1,
+      name: "Alice Silva",
+      idade: 28,
+      email: "alice.silva@exemplo.com",
+    },
+    {
+      id: 2,
+      name: "Bruno Costa",
+      idade: 35,
+      email: "bruno.costa@exemplo.com",
+    },
+    {
+      id: 3,
+      name: "Carla Souza",
+      idade: 22,
+      email: "carla.souza@exemplo.com",
+    },
+  ];
 
   return (
     <>
-        {/*className é o class que usamos no css para definirmos class em um html*/}
+      {/*className é o class que usamos no css para definirmos class em um html*/}
       <div className = 'container' >
             <form>
                 <h3>Cadastro de usuário</h3>
@@ -25,9 +57,20 @@ export default function Home():JSX.Element{
             </form>
       </div>
       <div>
-            <div className = "cardsList">
-        
-            </div>
+        {/* No react podemos usar chaves dentro do JSX ao qual chamaos de {JavaScript Expression}
+          Basicamente nos permite realizar lógica de programação javascript ou typescript dentro do
+          JSX
+        */
+        }
+        { users.map(user => (
+           <div className = "cardsList">
+            <p>Nome:</p>
+            <p>Idade:</p>
+            <p>Email:</p>
+            <button type='submit'>Deletar:</button>
+          </div>
+          ))
+        }
       </div>
     </>
   );

@@ -3,16 +3,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 // importando arquivos estáticos ou de estilização
-import './logo.svg'
+/*import './logo.svg'*/
 
 // importando o arquivo index.css referente a nossa main.tsx/index.tsx
-import './index.css'
+/*import './index.css'*/
 
 // importando o componete padrão criado pelo react mas que foi personalizado neste projeto
 //import App from './App';
 
 // importando página personalizada da módulo home
-import Home from './pages/home/index';
+//import Home from './pages/home/index';
+
+// importando página para aprender componentes pais que serevem de containers para seus filhos
+//import cpFaither from './pages/cpfaither_cpson/cpfaither';
+
+// importando componentes criados no pacote fundamentos_one
+import ComponenteDois from './pages/fundamento_one/indexCPthow';
 
 // não sei o que é 
 import reportWebVitals from './reportWebVitals';
@@ -26,7 +32,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     {/*   comentando componete <App/> */} 
-    <Home/>
+    {/*<Home/>*/}
+    <ComponenteDois/>
   </React.StrictMode>
 );
 

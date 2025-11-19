@@ -22,7 +22,7 @@ p{
 }
 
 .cardsList{
-    display:none
+    display:flex;
 }
 
 h3{

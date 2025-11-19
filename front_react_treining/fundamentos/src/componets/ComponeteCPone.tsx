@@ -7,7 +7,7 @@ import {JSX} from "react";
 import {useState} from "react";
 
 // criando um componete simples sem componetes filhos
-export const CPone = ():JSX.Element => {
+export const CPone:React.FC = ():JSX.Element => {
     return(
         <>
             <div>
