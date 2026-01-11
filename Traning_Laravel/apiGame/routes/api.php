@@ -101,6 +101,7 @@ Route::prefix('games')->group(function(){
 
     Route::post('/newGame', [GameController::class, 'store'])->name('games.store');
     Route::put('/update-game', [GameController::class, 'update'])->name('games.update');
+    Route::delete('/{id}', [GameController::class, 'destroy'])->name('games.destroy');
 });
 
 

@@ -52,8 +52,17 @@ class GameController extends Controller
             $game->thumb = $data['thumb'];
             $game->release_date = $data['release_date'];
             
+            # só para fins didáticos, exite a possibilidade de pegarmos campos
+            # específicos dos dados do request usando o metodo input()
+            # $game->name = $request->input("name");
+
             # Salva a modal dentro do banco de dados
-            $game->save();
+            if(!$game->save()){
+                return response()->json([
+                    'message' => 'Nao foi possivel atualizar o game.',
+                    'data' => $data
+                ], 500);
+            };
                 
             return response()->json([
                 'message' => 'Game created successfully',
@@ -104,6 +113,24 @@ class GameController extends Controller
             'data' => $game
         ], 200); 
     
+    }
+
+    protected function apiResponseDeleteData($id)
+    {
+        $game = new Games();
+
+        if(!$game::find($id)){
+            return response()->json([
+                "message" => "Game não encontrado para deleção!"
+            ],404);
+        }
+
+        $game::destroy($id);
+
+        return response()->json([
+            "message" => "Game deletado com sucesso!"
+        ],200);
+
     }
 
     public function index(){
@@ -206,6 +233,10 @@ class GameController extends Controller
 
         return $this->apiResponseUpdateData($data, $data['id']);
 
+    }
+
+    public function destroy(int $id) {
+        return $this->apiResponseDeleteData($id);
     }
 
 }

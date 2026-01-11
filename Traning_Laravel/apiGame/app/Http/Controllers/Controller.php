@@ -52,6 +52,6 @@ abstract class Controller
 
     abstract protected function apiResponseUpdateData(mixed $request,int $id);
 
-    # abstract protected function apiResponseCreateData(mixed $request);
+    abstract protected function apiResponseDeleteData(int $id);
 }
 

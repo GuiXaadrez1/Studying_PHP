@@ -21,10 +21,10 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "name": "The Last of Us2",
+    "name": "The Last of Us",
     "description": "Um jogo de sobrevivência pós-apocalíptico",
-    "thumb": "https://link-da-imagem.com/foto.jpg",
-    "release_date": "2018-06-14"
+    "thumb": "https://link-da-imagem.com/foto2.jpg",
+    "release_date": "2013-06-14 "
 }
 
 ### Atualiza os dados do jogo existente
@@ -35,8 +35,12 @@ Accept: application/json
 
 {   
     "id":2,
-    "name": "The Last of Us2",
+    "name": "The Last of Us II",
     "description": "Um jogo de sobrevivência pós-apocalíptico",
     "thumb": "https://link-da-imagem.com/foto2.jpg",
-    "release_date": "2019-06-14"
+    "release_date": "2018-06-14 "
 }
+
+### 
+DELETE http://localhost:8000/api/games/2
+Accept: application/json
