@@ -1,0 +1,42 @@
+## Arquivo para restat API com REST CLIENT
+
+### Variáveis globais (opcional)
+@baseUrl = http://localhost:8000/api/
+
+### Listar todos os jogos (Método Index)
+#GET {{baseUrl}}/games
+
+GET http://localhost:8000/api/games
+Accept: application/json
+
+###
+
+GET http://localhost:8000/api/games/1
+Accept: application/json
+
+### Criar um novo jogo (Método Store)
+#POST {{baseUrl}}/new-game
+POST http://localhost:8000/api/games/newGame
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "The Last of Us2",
+    "description": "Um jogo de sobrevivência pós-apocalíptico",
+    "thumb": "https://link-da-imagem.com/foto.jpg",
+    "release_date": "2018-06-14"
+}
+
+### Atualiza os dados do jogo existente
+
+PUT  http://localhost:8000/api/games/update-game
+Content-Type: application/json
+Accept: application/json
+
+{   
+    "id":2,
+    "name": "The Last of Us2",
+    "description": "Um jogo de sobrevivência pós-apocalíptico",
+    "thumb": "https://link-da-imagem.com/foto2.jpg",
+    "release_date": "2019-06-14"
+}
