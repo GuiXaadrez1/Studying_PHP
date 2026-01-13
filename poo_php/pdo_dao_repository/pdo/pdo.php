@@ -1,0 +1,93 @@
+<?php
+
+    // Principal objetivo deste arquivo é entender o que é o PDO do php
+
+    // PDO != DE PADRAO DE PROJETO
+
+    // Basicamente, PDO é uma API nativa do PHP que permite conexao com diversos SGBDS
+    // Também é chamado de PHP Data Objects 
+    // Em arquitetura de software é a cama de infraestrutura do banco de dados...
+
+    // Ele resolve um único problema:
+
+    // Como o PHP conversa com o banco de dados de forma segura e padronizada
+
+    /*
+        O que o PDO faz?
+
+            Abre conexão com banco (MySQL, PostgreSQL, SQLite, etc.)
+
+            Executa SQL
+
+            Usa prepared statements
+
+            Protege contra SQL Injection
+
+            Retorna resultados
+    */
+    
+    // Definindo namespace desta class
+    // Identificador global = NomeNamespace + NomeElemento
+    namespace Pdo\Pdo;
+
+    require_once __DIR__ . "/../config.php";
+
+    // Importe as classes do PHP no namespace global para este arquivo
+    use PDO;
+    use PDOException;
+
+
+    // __DIR__  -> variável mágica que retorna o caminho absoluta da pasta do arquivo.php
+    // __FILE__ ->  O caminho da pasta + o nome do arquivo
+
+    // Criando uma conexao com banco de dados específica no padrao Singleton
+    // ou seja, garantir que uma classe tenha apenas uma única instância em todo o ciclo 
+    // de vida da requisição e fornecer um ponto global de acesso a ela.
+    
+    class BdConnection{
+        
+        // criando uma instancia stática vazia
+        private static $instance = null;
+
+        // Definimos uma propriedade para guardar a conexão
+        private $pdo;
+
+        public function __construct(){
+            try {
+                // Aqui você cria a conexão PDO, passando as contantes da configuracao
+                $this->pdo = new PDO(BD.':host='.HOST.';dbname='.BD_NAME, USER, PASSWORD);
+
+                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                die("Error connection: " . $e->getMessage());
+            }
+        }
+
+        public static function getInstance() {
+            if (self::$instance === null) {
+                // Se não existe, cria a primeira e única vez
+                self::$instance = new BdConnection();
+            }
+            return self::$instance;
+        }
+
+        // Método opcional para recuperar a conexão depois
+        public function getConnection() {
+            echo "Connected to " . BD_NAME . " database successfully! ";
+            return $this->pdo;
+        }
+
+        // Usando palavra  mágica que impede clonagem do objeto (Segurança do Singleton)
+        private function __clone() {}
+
+        // no php podemos realiozar uma clonagem profunda de um objeto usando o metodo clone()
+    }
+
+    // materializando a nossa class de acesso ao banco de dados (Singleton)
+    $db = BdConnection::getInstance();
+    $pdo = $db->getConnection();
+
+    // Se você chamar de novo em outro arquivo:
+    $db2 = BdConnection::getInstance();
+    // $db e $db2 são EXATAMENTE o mesmo objeto e a mesma conexão.
+?>

@@ -50,7 +50,7 @@ Observações sintáticas:
 
 - É possível declarar múltiplos namespaces em um mesmo arquivo, mas isso é desencorajado por boas práticas de engenharia de software.
 
-## mportando Namespaces com use (Ponto de atenção)
+## Importando Namespaces com use (Ponto de atenção)
 
 Para utilizar uma classe, função ou constante definida em outro namespace, utiliza-se a instrução use. Ela importa o caminho completo, permitindo o uso de nomes curtos dentro do arquivo atual.
 
