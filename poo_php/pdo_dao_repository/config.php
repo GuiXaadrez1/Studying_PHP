@@ -8,7 +8,7 @@
 
     const BD = "mysql";
 
-    const BD_NAME = "mysql";
+    const BD_NAME = "csj";
 
     const PASSWORD = "32481024";
 
