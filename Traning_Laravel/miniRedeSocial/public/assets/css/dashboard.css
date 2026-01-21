@@ -1,0 +1,33 @@
+.container-limit {
+    max-width: 700px;
+}
+
+.card-post {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+#site_name a{
+    text-decoration: none;
+    color: #111;
+}
+
+.books-link ul{
+    text-align: center;
+    justify-content: center
+}

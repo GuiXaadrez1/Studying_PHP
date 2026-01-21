@@ -11,7 +11,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Aqui podemos personalizar o nosso middleware e redirecionar
+        // para alguma página definida aqui caso o usuário nao tenha feito
+        // login
+
+        // coloque exatamente o nome da rota
+        $middleware->redirectGuestsTo('/');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

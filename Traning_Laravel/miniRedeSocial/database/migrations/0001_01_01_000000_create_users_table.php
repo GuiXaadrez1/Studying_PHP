@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+// importando a nossa class de constantes de tabelas criada
+use App\Constantes\Tables;
+
 return new class extends Migration
 {
     /**
@@ -11,12 +14,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create(Tables::USERS, function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            // aqui basicamente estamos adicionando um campo 
+            // com a constraint unique assim que o campo email for criado
+            // $table->string('username')->unique()->after('email');
+            // ou opte pela solucao mais simples... Crie o campo normalmente 
+            // adicionando a constraint unique depois da criacao do campo email
+            $table->string('username')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // colocando bio na tabela nativa de usuarios do Laravel
+            // com no máximo 500 caracteres, ele é nullable, aceita valores nulos
+            $table->string("bio",500)->nullable();
+            $table->string("photo",150)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -48,10 +48,10 @@ abstract class Controller
     }
 
     # definindo método abstrato para as subclass implementar da forma como quiser
-    abstract protected function apiResponseCreateData(mixed $request);
+    //abstract protected function apiResponseCreateData(mixed $request);
 
-    abstract protected function apiResponseUpdateData(mixed $request,int $id);
+    //abstract protected function apiResponseUpdateData(mixed $request,int $id);
 
-    abstract protected function apiResponseDeleteData(int $id);
+    //abstract protected function apiResponseDeleteData(int $id);
 }
 
