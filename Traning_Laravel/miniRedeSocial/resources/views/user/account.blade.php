@@ -97,7 +97,8 @@
         <div class="card border-danger mb-4">
             <div class="card-body">
                 <h6 class="card-title">Alterar imagem (250x250)</h6>
-                <form method="POST" action="{{ route('user.update.photo') }}" enctype="multipart/form-data">
+                {{-- <form method="POST" action="{{ route('user.update.photo') }}" enctype="multipart/form-data"> --}}
+                    <form method="POST" action="#" enctype="multipart/form-data">
                     @method('patch')
                     @csrf
 

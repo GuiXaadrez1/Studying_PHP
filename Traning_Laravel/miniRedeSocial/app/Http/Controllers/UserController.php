@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Auth;
 /* Para captar os dados vindo da nossa Custom Request */
 // Com esse o validator já vem aplicado automaticamente, pois é embutido na logica
 // de validacao do custom request
+
 use App\Http\Requests\RegisterUserRequest;
+use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\UpdatePhotoUserRequest;
 
 // Vamos passar nossa class Repository por DI (Depedêncy Injection)
 
@@ -22,6 +25,9 @@ use App\Repositories\Contracts\UserRepositoryInterface;
 
 // Class ao qual aplicamos o Resource para filtragem de campos retornados do banco de dados
 use App\Http\Resources\UserAccountResource;
+
+// Obtendo a nossa Service
+use App\Service\ImageUploadService;
 
 class UserController extends Controller
 {
@@ -84,12 +90,20 @@ class UserController extends Controller
 
     public function index(Request $request){
 
+        // materializando uma class do nosso Resource
+        // basicamente ele vai filtrar os campos a serem retornados ao navegador
 
         $userResource = new UserAccountResource(
             $this->userRepository->find(
                 Auth::user()->id
             )
         );
+
+        //dd(Auth::user()->first_name);
+
+        //dd($userResource);
+
+        //var_dump($userResource);
 
         return view('user.account',[
             // esse user é a variável que pode ser acessada pelo nosso view usando {{}}
@@ -99,11 +113,13 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(){
+    public function update(UserUpdateRequest $request){
 
         $userId = Auth::user()->id;
         
-        return null;
+        $this->userRepository->update($userId,$request->all());
+
+        return redirect()->back()->with('success', 'Usuário alterado com sucesso!');
     }
 
     public function updatePassword(){
@@ -111,9 +127,32 @@ class UserController extends Controller
         return null;
     }
 
-    public function updatePhoto(){
-        
-        return null;
-    }
+    public function updatePhoto(UpdatePhotoUserRequest $request)
+    {
+        $imageUploadService = new ImageUploadService('public');
 
+        $filename = $imageUploadService->upload(
+            $request->file('photo'),
+
+            // env(nomeVariavelAmbiente) = obtem o valor armazenado na variavel de ambiente
+            env('USER_DIR_PROFILE_UPLOAD')
+        );
+
+        $form = [
+            'photo' => $filename
+        ];
+
+        $currentPhoto = Auth::user()->photo;
+        $userID = Auth::user()->id;
+
+        if (!$this->userRepository->update($userID, $form)) {
+            return redirect()->back()->withErrors([
+                'Houve um erro ao tentar alterar a imagem do usuário. Por favor, tente novamente.'
+            ]);
+        }
+
+        $imageUploadService->delete($currentPhoto, env('USER_DIR_PROFILE_UPLOAD'));
+
+        return redirect()->back()->with('success', 'Imagem do usuário alterado com sucesso!');
+    }
 }

@@ -46,9 +46,16 @@
 
         // esse método retorna um object
         public function find(int $id){
-            $user = User::find();
+            $user = User::find($id);
 
             return $user;
+        }
+
+        public function update(int $id, array $data):bool{
+            
+            $user = User::find($id);
+
+            return $user->update($data);
         }
     }
 

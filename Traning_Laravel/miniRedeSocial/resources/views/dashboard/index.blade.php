@@ -5,7 +5,7 @@
 @section('body')
     <!-- Form -->
     <div class="card p-3 mb-4">
-        <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="#" enctype="multipart/form-data">
             @csrf
             <label class="mb-2">O que você está lendo?</label>
             <div class="d-flex gap-2 mb-2">
@@ -19,16 +19,6 @@
                     <label for="cover" class="form-label">Imagem</label><br>
                     <label for="cover" class="btn btn-outline-primary w-100">Selecionar imagem</label>
                     <input id="cover" name="cover" style="display:none;" type="file">
-                </div>
-
-                <!-- Div do select - 50% -->
-                <div class="w-50">
-                    <label for="category_id" class="form-label">Gênero</label>
-                    <select name="category_id" id="category_id" class="form-control">
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
                 </div>
             </div>
 
@@ -53,17 +43,5 @@
 
             <button class="btn btn-success">Postar</button>
         </form>
-    </div>
-
-    <div>
-        @foreach ($books as $book)
-            <div class="mt-3">
-                @include('dashboard.card', ['book' => $book])
-            </div>
-        @endforeach
-
-        <div class="books-link mt-5">
-            {{ $paginator->links('pagination::bootstrap-4') }}
-        </div>
     </div>
 @endsection

@@ -14,6 +14,7 @@
 
         public function create(array $data):bool;
         public function find(int $id);
+        public function update(int $id,array $data):bool;
     }
 
 ?>

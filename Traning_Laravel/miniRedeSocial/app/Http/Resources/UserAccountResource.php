@@ -25,6 +25,17 @@ class UserAccountResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+
+        $photo = '';
+
+        if ($this->photo == null) {
+            $photo = asset('assets/img/user_profile.png');
+        } else {
+            $dir = env('USER_DIR_PROFILE_UPLOAD');
+
+            $photo =  "/storage/{$dir}{$this->photo}";
+        }
+
         return [
             'name' => $request->name,
             'bio' => $request->bio,
