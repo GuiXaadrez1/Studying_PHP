@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+// realizando o binding entre reposiroty e contrato(interface)
+
+use App\Repositories\Admin\AdminRepository;
+use App\Repositories\Contracts\AdminInterface;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -11,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(AdminInterface::class,AdminRepository::class);
     }
 
     /**
