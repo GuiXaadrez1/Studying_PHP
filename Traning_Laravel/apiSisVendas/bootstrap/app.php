@@ -12,8 +12,15 @@ return Application::configure(basePath: dirname(__DIR__))
         api: __DIR__.'/../routes/api.php',
         health: '/up',
     )
+    // Aqui configura o nosso Middleware
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+
+        $middleware->group('api', [
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
+        ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

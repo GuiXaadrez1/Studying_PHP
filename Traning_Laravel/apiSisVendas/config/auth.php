@@ -36,10 +36,18 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        /*'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],*/
+
+        //  Caso a tabela nao seja nativa do laravell como o users
+        // é necessário realizar ess configuração para nao da B.O
+        'sanctum' => [
+            'driver' => 'sanctum',
+            'provider' => 'admins',
         ],
+
     ],
 
     /*
@@ -60,15 +68,22 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        
+        /*'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
-        ],
+        ],*/
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        // O mesmo vale para este!
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
     ],
 
     /*

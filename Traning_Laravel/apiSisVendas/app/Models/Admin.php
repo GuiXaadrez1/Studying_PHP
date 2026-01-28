@@ -8,8 +8,16 @@ use App\Models\Produtos;
 use App\Models\Categoria;
 use App\Models\Vendedor;
 
-class Admin extends Model
+
+// para autentificacao de tokens
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class Admin extends Authenticatable
 {
+
+    use HasApiTokens,Notifiable;
 
     // Esses atributos definidos desta maneira, serve para trabalhar com
     // banco de dados já criados 
@@ -60,13 +68,46 @@ class Admin extends Model
         'codadmin',
         'nome',
         'email',
+        'senha'
     ];
+
+    // isso aqui esconde os campos:
+    protected $hidden = [
+        'senha',
+    ];
+
+    /**
+     * Diz ao Laravel qual campo representa a senha
+     * Assim podemos representar, mapear e realizar o login
+     * Visto que nao estamos usando a tabela padrao users
+     */
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
+
+    /**
+    * Diz ao Laravel qual é o nome da chave primária
+    */
+    public function getAuthIdentifierName()
+    {
+        return 'idadmin';
+    }
+    
+    /**
+     * Retorna o valor da chave primária
+     */
+    public function getAuthIdentifier()
+    {
+        return $this->idadmin;
+    }
 
     // 7️⃣ (Opcional) Cast de tipos
     protected $casts = [
         'dthinsert' => 'datetime',
         'dthdelete' => 'datetime',
         'statusdelete' => 'boolean',
+        'idadmin' => 'integer',
     ];
     
     // realizando relacionamento recursivo

@@ -1,0 +1,8 @@
+### LOGIN - ADMIN
+POST http://localhost:8000/api/login
+Content-Type: application/json
+
+{
+  "email": "Gaby@12gmail.com",
+  "senha": "123456"
+}
