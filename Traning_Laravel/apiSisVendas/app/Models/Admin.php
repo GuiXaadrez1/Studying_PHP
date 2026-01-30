@@ -40,6 +40,9 @@ class Admin extends Authenticatable
     // Laravel NÃO vai procurar created_at / updated_at
     public $timestamps = false;
     
+    // protegendo guard na model para o sanctum identificar
+    protected $guard = 'admin';
+
     // Campos da tabela que podem ser preenchidos em massa!
     /*protected $fillable = [
         'idadmin',
@@ -87,20 +90,29 @@ class Admin extends Authenticatable
     }
 
     /**
-    * Diz ao Laravel qual é o nome da chave primária
-    */
-    public function getAuthIdentifierName()
-    {
-        return 'idadmin';
-    }
-    
-    /**
-     * Retorna o valor da chave primária
+     * Sobrescreve o método para o Sanctum saber qual valor 
+     * salvar em 'tokenable_id'
      */
-    public function getAuthIdentifier()
+    // 1. Garante que o Sanctum pegue o valor correto para tokenable_id
+    public function getKey()
     {
         return $this->idadmin;
     }
+
+    // 2. Garante que o Eloquent saiba o nome da PK
+    public function getKeyName()
+    {
+        return 'idadmin';
+    }
+
+    public function getKeyType()
+    {
+        // Garante que o Laravel trate o ID como inteiro na hora de montar a query SQL
+        return 'int';
+    }
+
+    // Se o seu banco for muito antigo e não aceitar datas no formato do Laravel 10/11
+    protected $dateFormat = 'Y-m-d H:i:s';
 
     // 7️⃣ (Opcional) Cast de tipos
     protected $casts = [

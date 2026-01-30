@@ -14,8 +14,12 @@ return [
     */
 
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'web'),
-        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+        //'guard' => env('AUTH_GUARD', 'web'),
+        //'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+
+        // customizando 
+        'guard' => 'admin', // Mude de 'web' para 'admin'
+        'passwords' => 'admins' // criando apelido
     ],
 
     /*
@@ -36,16 +40,17 @@ return [
     */
 
     'guards' => [
-        /*'web' => [
+        'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],*/
+        ],
 
         //  Caso a tabela nao seja nativa do laravell como o users
         // é necessário realizar ess configuração para nao da B.O
-        'sanctum' => [
+        // admin -> model
+        'admin' => [
             'driver' => 'sanctum',
-            'provider' => 'admins',
+            'provider' => 'administrador', // tabela do banco de dados
         ],
 
     ],
@@ -69,10 +74,10 @@ return [
 
     'providers' => [
         
-        /*'users' => [
+        'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
-        ],*/
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -80,7 +85,7 @@ return [
         // ],
 
         // O mesmo vale para este!
-        'admins' => [
+        'administrador' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
@@ -106,11 +111,19 @@ return [
     */
 
     'passwords' => [
-        'users' => [
+
+        /*'users' => [
             'provider' => 'users',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
             'expire' => 60,
             'throttle' => 60,
+        ],*/
+
+        'admins' => [ // Criamos o apelido 'admins'
+            'provider' => 'administrador', // Aponta para o seu provider que usa o Model Admin
+            'table' => 'password_reset_tokens', // Onde o Laravel guarda os tokens de recuperação
+            'expire' => 60, // 60 minutos para expirar o token
+            'throttle' => 60, // 60 minutos para tempo de espera entre tentativas de acesso
         ],
     ],
 

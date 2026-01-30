@@ -5,8 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 // para realizar tokens e mapeamento de usuários na navegacao do sistema
-use App\Models\PersonalAccessToken;
 use Laravel\Sanctum\Sanctum;
+use Laravel\Sanctum\PersonalAccessToken;
 
 // realizando o binding entre reposiroty e contrato(interface)
 
@@ -28,7 +28,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Para configurar o Sanctum, sem isso ele nao funciona adequadamente
+        // também é necessário consfigurar o auth.php e o sanctum.php
         Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
     }
 }

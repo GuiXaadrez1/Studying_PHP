@@ -17,7 +17,7 @@ class LoginService
     public function __construct(){}
 
     // Aqui é composição pura
-    public function login(array $credentials){
+    /*public function login(array $credentials){
         
         // finja que é uma repository bem aqui
         $admin = Admin::where('email', $credentials['email'])->first();
@@ -30,7 +30,12 @@ class LoginService
         }
 
         $senhaDigitada = $credentials['senha'];
+        
+        //dd($senhaDigitada);
+
         $senhaBanco = $admin->senha;
+
+        //dd($senhaBanco);
 
         // 👉 SE FOR MD5
         if (strlen($senhaBanco) === 32) {
@@ -53,28 +58,69 @@ class LoginService
         // Login manual no guard admin
         //Auth::guard('admin')->login($admin);
 
+        //dd(Auth::guard('admin')->login($admin));
+
         // Geração do token (Sanctum)
-        $token = $admin->createToken('admin_token')->plainTextToken;
+        try {
+            $token = $admin->createToken('admin_token')->plainTextToken;
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Erro ao criar token',
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine()
+            ], 500);
+        }
+
+        //dd($token);
 
         return response()->json([
             'access_token' => $token,
             'token_type'   => 'Bearer',
         ]);
 
-    }
+    }*/
 
+    public function login(array $credentials)
+    {
+        $admin = Admin::where('email', $credentials['email'])->first();
+
+        // ... sua lógica de conferência de senha ...
+
+        try {
+            // Antes de criar, garantimos que o ID está no formato correto
+            $id = (int) $admin->idadmin; 
+            
+            // Criamos o token
+            $tokenResult = $admin->createToken('admin_token');
+            
+            return response()->json([
+                'access_token' => $tokenResult->plainTextToken,
+                'token_type'   => 'Bearer',
+            ]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Se o erro for de banco (Postgres), ele vai cair aqui
+            return response()->json([
+                'error' => 'Erro de Banco de Dados',
+                'sql_message' => $e->getMessage(), // Isso vai te dizer se falta a coluna 'password' ou 'id'
+                'query' => $e->getSql()
+            ], 500);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+    
     public function logout(Request $request)
     {
-        $admin = $request->user();
+        // Recupera o admin autenticado pelo token
+        $admin = $request->user(); 
 
-        if (!$admin) {
-            return response()->json(['error' => 'Not authenticated'], 401);
+        if ($admin) {
+            // Deleta apenas o token que está sendo usado nesta sessão
+            $admin->currentAccessToken()->delete();
+            return response()->json(['message' => 'Logout realizado com sucesso']);
         }
 
-        $admin->currentAccessToken()->delete();
-
-        return response()->json([
-            'message' => 'Logout realizado com sucesso'
-        ]);
+        return response()->json(['error' => 'Não autorizado'], 401);
     }
 }
