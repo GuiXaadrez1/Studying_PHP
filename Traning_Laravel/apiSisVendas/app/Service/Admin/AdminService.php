@@ -27,7 +27,11 @@ class AdminService
         if (gettype($str) !== 'string') {
             return '';
         }
-        return mb_strtoupper(mb_substr($str, 0, 1)) . mb_substr($str, 1);
+        #mb_strtoupper -> transforma todos os caracetres da string em maiúscula
+        return mb_strtoupper(
+            # primeiro mb_substr -> pega uma parte da string
+            mb_substr($str, 0, 1)) . mb_substr($str, 1);
+            # segundo mb_substr -> concatena o restante da string com o primeiro mb_substr
     }
 
     // método a serem usados no controller

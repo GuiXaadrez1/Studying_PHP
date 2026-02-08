@@ -37,7 +37,7 @@ class AdminRepository implements AdminInterface
             'codadmin',
             'nome',
             'email',
-            'dthinsert',
+            'dthinsert as data_registro',
             'dthdelete',
             'statusdelete']
         );
@@ -80,7 +80,7 @@ class AdminRepository implements AdminInterface
             'codadmin',
             'nome',
             'email',
-            'dthinsert as dataInsert',
+            'dthinsert as data_registro',
             'statusdelete as deletado'
         ])
         ->where('idadmin', $id)

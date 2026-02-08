@@ -6,13 +6,18 @@ use Illuminate\Support\Facades\Route;
 # importando as controllers para a nossa API
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryProductController;
 
+/*
+
+Quando nao se cria uma API e arquitetura é cliente-servidor no formato serve-side
+usamos templates!
 
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::post('admin/login', [LoginController::class, 'store'])->name('admin.login');
+Route::post('admin/login', [LoginController::class, 'store'])->name('login');
 
 // criando nossas rotas protegidas com o meddleware correto
 
@@ -47,4 +52,18 @@ Route::middleware('auth:admin')->prefix('adm')->group(function(){
     // rota para logout, preciso estar autenticado para deslogar
     Route::post('/logout',[LoginController::class, 'logout'])->name('admin.logout');
 
+    // Só o administrador pode participar do módulo categorias para produto
+    Route::get('/listCategories', [CategoryProductController::class, 'index'])->name('category,index');
+
+    Route::get('/infoCategory/{id}', [CategoryProductController::class, 'show'])
+    ->where('id','[0-9]+')->name('category.show');
+
+    Route::post('/registerCategory',[CategoryProductController::class, 'store'])->name('category.register');
+
+    Route::put('/updateCategory/{id}',[CategoryProductController::class, 'update'])
+    ->where(['id','\d+'])->name('category.update');
+
 });
+
+
+

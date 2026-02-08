@@ -13,6 +13,9 @@ use Laravel\Sanctum\PersonalAccessToken;
 use App\Repositories\Admin\AdminRepository;
 use App\Repositories\Contracts\AdminInterface;
 
+use App\Repositories\Category\CategoryProductRepositories;
+use App\Repositories\Contracts\Categoryinterface;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -21,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(AdminInterface::class,AdminRepository::class);
+        $this->app->bind(Categoryinterface::class,CategoryProductRepositories::class);
     }
 
     /**

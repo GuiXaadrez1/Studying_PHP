@@ -20,7 +20,10 @@ class Categoria extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nome'
+        'idcategoria',
+        'idadmin',
+        'nome',
+        'dthinsert',
     ];
 
     protected $casts = [
