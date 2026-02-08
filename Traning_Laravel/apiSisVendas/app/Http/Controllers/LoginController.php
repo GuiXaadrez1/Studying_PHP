@@ -19,7 +19,6 @@ class LoginController extends Controller
         $this->login = $login;
     }
 
-
     public function store(Request $request)
     {
         return $this->login->login(

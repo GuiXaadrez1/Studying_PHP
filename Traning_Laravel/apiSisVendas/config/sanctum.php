@@ -34,8 +34,10 @@ return [
     |
     */
 
-    'guard' => ['web'],
-    //'guard' => ['admin'],
+    //'guard' => ['web'],
+
+    // Vamos primeiro tentar esses guards para depois autentificar pelo bearer do header da reqiuisição
+    'guard' => ['admin','vendedor'],
 
     /*
     |--------------------------------------------------------------------------
@@ -48,6 +50,7 @@ return [
     |
     */
 
+    // por enquanto os tokens nunca ficam expirados!
     'expiration' => null,
 
     /*
@@ -76,10 +79,19 @@ return [
     |
     */
 
+    //  define quais middlewares são aplicados durante a autenticação.
     'middleware' => [
         'authenticate_session' => Laravel\Sanctum\Http\Middleware\AuthenticateSession::class,
         'encrypt_cookies' => Illuminate\Cookie\Middleware\EncryptCookies::class,
         'validate_csrf_token' => Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
     ],
+
+    /*
+        AuthenticateSession → garante que a sessão do usuário está válida.
+
+        EncryptCookies → criptografa cookies para evitar leitura direta.
+
+        ValidateCsrfToken → protege contra ataques de CSRF.
+    */
 
 ];

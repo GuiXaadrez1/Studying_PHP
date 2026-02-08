@@ -5,6 +5,10 @@ namespace App\Models;
 use App\Models\Admin;
 use App\Models\Venda;
 
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Vendedor extends Model

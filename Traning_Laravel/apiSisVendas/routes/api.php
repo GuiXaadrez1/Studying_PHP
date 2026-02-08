@@ -27,6 +27,9 @@ Route::post('admin/login', [LoginController::class, 'store'])->name('login');
 //Route::middleware(['auth:sanctum'])->prefix('adm')->group(function(){
 
 Route::middleware('auth:admin')->prefix('adm')->group(function(){
+    
+    // O auth:admin não é o nome da tabela, 
+    // mas sim o nome do guard definido no arquivo config/auth.php.
 
     // no front-end pode ser criada um tabela com as informacoes básica dos adms 
     Route::get('/listAdms', [AdminController::class, 'index'])->name('admin.index');

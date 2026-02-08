@@ -53,6 +53,12 @@ return [
             'provider' => 'administrador', // tabela do banco de dados
         ],
 
+        // 'vendedor' -> nome/flag que damos aqui nesta meddleware, para identificar qual tipo de autentificação vamos usar
+        'vendedor' => [
+            'driver' => 'sanctum', // 
+            'provider' => 'administrador', // tabela do banco de dados
+        ],
+
     ],
 
     /*
@@ -122,7 +128,7 @@ return [
         'admins' => [ // Criamos o apelido 'admins'
             'provider' => 'administrador', // Aponta para o seu provider que usa o Model Admin
             'table' => 'password_reset_tokens', // Onde o Laravel guarda os tokens de recuperação
-            'expire' => 60, // 60 minutos para expirar o token
+            'expire' => 60, // 60 minutos para expirar o **token de recuperação**
             'throttle' => 60, // 60 minutos para tempo de espera entre tentativas de acesso
         ],
     ],

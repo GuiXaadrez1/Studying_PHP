@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Para configurar o Sanctum, sem isso ele nao funciona adequadamente
-        // também é necessário consfigurar o auth.php e o sanctum.php
+        // também é necessário consfigurar o auth.php e o sanctum.php no diretório config
         Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
     }
 }
