@@ -11,4 +11,5 @@ interface Categoryinterface{
     public function isIdCategoryDeleted(int $id);
     public function insert(int $idadmin,$data):bool;
     public function update(int $idcategory, $data):bool;
+    public function delete(int $id):bool;
 };

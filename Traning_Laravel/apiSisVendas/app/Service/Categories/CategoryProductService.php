@@ -28,6 +28,11 @@ class CategoryProductService
         return mb_strtoupper(mb_substr($str, 0, 1)) . mb_substr($str, 1);
     }
 
+    // Procura por um registro de categoria, idependente se ele foi deletado ou nao
+    public function getCategory($id){
+        return $this->categoryRepository->findCategory($id);
+    }
+
     /**
      * Serviço que lista todas as categorias ativas
      * ou seja, nap deletadas logicamente
@@ -61,7 +66,7 @@ class CategoryProductService
         
         $ok = $this->categoryRepository->insert($idadmin,$data);   
         
-        if(!$ok && !$ok === false){
+        if(!$ok || !$ok === false){
             return false;
         }
 
@@ -76,6 +81,15 @@ class CategoryProductService
 
         return $this->categoryRepository->update($idcategory,$data);
 
+    }
+
+    /**
+     * Deleta lógicamente o registro
+     */
+    public function softDelete(int $id){
+
+        //dd($id);
+        return $this->categoryRepository->delete($id);
     }
 
 }

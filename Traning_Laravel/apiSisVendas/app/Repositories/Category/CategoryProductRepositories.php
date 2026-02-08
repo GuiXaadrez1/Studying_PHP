@@ -69,7 +69,7 @@ class CategoryProductRepositories implements Categoryinterface
             ->where(function($query) use ($status) {
                 $query->where('statusdelete', $status)
                     ->whereNull('dthdelete');
-            })->get();
+            })->orderby('idcategoria','asc')->get();
 
         // Debugando a divergência de encoding 
         //dd(DB::select("SHOW client_encoding"),$data);
@@ -150,4 +150,54 @@ class CategoryProductRepositories implements Categoryinterface
         return $category->update($data);
     }
 
+    public function delete($id):bool{
+
+        // valida se a category já foi deletada
+        $categoryDeleted = $this->isIdCategoryDeleted($id);
+
+        // dd($categoryDeleted); -> retorna false se nao for deletada e true se for deletada
+
+        // se o resultado é true, retorna false 
+        if($categoryDeleted){
+            return false;
+        }
+
+        // retorna true se atulizar corretamente!
+        // Lembre-se: O eloquesnt
+        return $this->categoryModel 
+            ->where('idcategoria', $id) 
+            ->update([ 'statusdelete' => true, 'dthdelete' => now(), ]);
+
+        // ATENÇÃO ISSO É IMPORTANTE PARA ELOQUENT VS QUERY BUILDER:
+
+        /* 
+            No Model diretamente ($this->categoryModel->update([...])):
+                Isso tenta atualizar todos os registros da tabela, porque não há 
+                filtro de where ou find. É por isso que não funcionava no seu caso.
+
+            No Query Builder (where()->update([...])):
+                Atualiza apenas os registros que correspondem ao filtro. Exemplo:
+                            
+                    $this->categoryModel
+                    ->where('idcategoria', $id)
+                    ->update([
+                        'statusdelete' => true,
+                        'dthdelete'    => now(),
+                    ]);
+                
+                  Aqui o Eloquent gera um UPDATE categoria SET ... WHERE idcategoria = ?.
+
+            No Model instanciado (find()->update([...])):
+                Primeiro busca o registro, depois aplica o update. Exemplo:
+                    
+                    $category = $this->categoryModel->find($id); 
+                    if ($category) { 
+                        $category->update([ 
+                            'statusdelete' => true, 
+                            'dthdelete' => now(), 
+                        ]); 
+                    }
+
+        */
+    }
 }

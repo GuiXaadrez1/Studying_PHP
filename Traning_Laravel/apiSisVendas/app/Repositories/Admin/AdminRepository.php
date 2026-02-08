@@ -51,6 +51,7 @@ class AdminRepository implements AdminInterface
         //dd($this->admin->find($id));
         return $this->admin->find($id);
     }
+    
     public function findAllActivyAdmins():?object
     {
         /*$result = $this->admin->all([

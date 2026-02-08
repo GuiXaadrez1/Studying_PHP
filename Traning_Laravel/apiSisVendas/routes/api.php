@@ -63,7 +63,10 @@ Route::middleware('auth:admin')->prefix('adm')->group(function(){
     Route::put('/updateCategory/{id}',[CategoryProductController::class, 'update'])
     ->where(['id','\d+'])->name('category.update');
 
+    Route::patch('/deleteCategory/{id}',[CategoryProductController::class, 'destroy'])
+    ->where(['id','\d+'])->name('category.destroy');
+
 });
 
-
+// Criando Login para o middleware('auth:vedendor')
 

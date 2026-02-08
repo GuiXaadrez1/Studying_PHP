@@ -78,6 +78,8 @@ class CategoryProductController extends Controller
      */
     public function update(int $id, Request $request){
 
+        // fazendo a concatenação do id passado pela URL 
+        // com os dados passados pelo corpo do JSON (Body) na requisição  
         $inputs = array_merge($request->all(), ['idcategory' => $id]);
 
         //dd($inputs);
@@ -122,6 +124,34 @@ class CategoryProductController extends Controller
         return response()->json([
             'message' => 'Informacoes atualizadas com sucesso!',
         ], 200);
+    }
+
+    /**
+     * Rescebe o id pela URL e nao pelo corpo da Requisição
+     */
+    public function destroy($id){
+                    
+        // Encontra um registro da categoria
+        $category = $this->categoryProductService->getCategory($id);
+
+        //dd($admin);
+
+        if (!$category) {
+            return response()->json(['message' => 'Registro não encontrado ou ou nao existe!'], 404);
+        }
+
+        if ($this->categoryProductService->notExistCategory($id)) {
+            return response()->json(['message' => 'Esta categoria já foi deletada'], 422);
+        }
+
+        // Passamos apenas o ID. A Service e o Repository cuidam do resto.
+        $deleted = $this->categoryProductService->softDelete($id);
+        
+        if(!$deleted){
+            return response()->json(['message' => 'Não foi possível deletar a categoria!'], 400);            
+        }
+
+        return response()->json(['message' => ' Categoria de produto deletada sucesso!'], 200);   
     }
 
 }

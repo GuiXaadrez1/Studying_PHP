@@ -219,7 +219,7 @@ class AdminController extends Controller
         // Passamos apenas o ID. A Service e o Repository cuidam do resto.
         $deleted = $this->admService->softDelete($id);
 
-        if (!$deleted) {
+        if ($deleted==false) {
             return response()->json(['message' => 'Não foi possível completar a exclusão.'], 500);
         }
         
