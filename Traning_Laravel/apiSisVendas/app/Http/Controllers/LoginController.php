@@ -20,14 +20,49 @@ class LoginController extends Controller
     }
 
     public function store(Request $request)
-    {
-        return $this->login->login(
-            $request->only('email', 'senha')
+    {   
+
+        // validando o valor de isVendedor, para garantir que seja um booleano válido
+        if((int)$request->input('isVendedor') > 1){
+            return response()->json(['error' => 'Não foi possível realizar o login.'], 400);
+        }
+
+        // Obtendo dados da requisicao via Query String da Url
+        $isVendedor = (bool)$request->input('isVendedor');
+
+        // Se for login de vendedor, chama o método específico para login de vedendores
+        if ($isVendedor) {
+            return $this->login->loginVendedor(
+                $request->only('email', 'senha')
+            );
+        }
+
+        // Caso contrário, é login de admin
+        return $this->login->loginAdm(
+            $request->only('email', 'senha'),
+            $isVendedor
         );
     }
 
     public function logout(Request $request)
-    {
-        return $this->login->logout($request);
+    {   
+
+        // dd((int)$request->input('isVendedor'));
+
+        // validando o valor de isVendedor, para garantir que seja um booleano válido
+        if((int)$request->input('isVendedor') > 1){
+            return response()->json(['error' => 'Não foi possível realizar o logout.'], 400);
+        }
+        
+        // Obtendo dados da requisicao via Query String da Url
+        $isVendedor = (bool)$request->input('isVendedor');
+
+        // Se for logout de vendedor, chama o método específico para logout de vedendores
+        if ($isVendedor) {
+            return $this->login->logoutVendedor($request);
+        }
+
+        // Caso contrário, é logout de admin
+        return $this->login->logoutAdm($request);
     }
 }

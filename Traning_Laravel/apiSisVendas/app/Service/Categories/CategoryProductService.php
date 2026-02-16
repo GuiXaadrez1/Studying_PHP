@@ -60,13 +60,16 @@ class CategoryProductService
             return false;
         }
 
+        // atualizando o nome  da categoria para ter a primeira letra em maiuscula
         $data['nome'] = $this->capitalize($data['nome']);
         
         // dd($idadmin,$data); teste realizado com sucesso!
         
         $ok = $this->categoryRepository->insert($idadmin,$data);   
         
-        if(!$ok || !$ok === false){
+        //dd($ok);
+
+        if($ok === false){
             return false;
         }
 

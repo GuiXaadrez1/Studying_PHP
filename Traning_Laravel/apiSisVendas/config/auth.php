@@ -14,12 +14,12 @@ return [
     */
 
     'defaults' => [
-        //'guard' => env('AUTH_GUARD', 'web'),
-        //'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+        'guard' => env('AUTH_GUARD', 'web'),
+        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
 
-        // customizando 
-        'guard' => 'admin', // Mude de 'web' para 'admin'
-        'passwords' => 'admins' // criando apelido
+        // customizando voltando para a forma padrao que é mais segura 
+        // 'guard' => 'admin', // Mude de 'web' para 'admin'
+        // 'passwords' => 'admins' // criando apelido
     ],
 
     /*
@@ -49,15 +49,15 @@ return [
         // é necessário realizar ess configuração para nao da B.O
         // admin -> model
         'admin' => [
-            'driver' => 'sanctum',
+            'driver' => 'sanctum', // tipo de driver, pode ser session ou sanctum, o sanctum é mais recomendado para APIs, pois ele gera tokens de autenticação, e o session é mais recomendado para aplicações web, pois ele utiliza sessões para manter o usuário logado
             'provider' => 'administrador', // tabela do banco de dados
         ],
 
         // 'vendedor' -> nome/flag que damos aqui nesta meddleware, para identificar qual tipo de autentificação vamos usar
-        'vendedor' => [
+        /*'seller' => [
             'driver' => 'sanctum', // 
-            'provider' => 'administrador', // tabela do banco de dados
-        ],
+            'provider' => 'vendedor', // tabela do banco de dados
+        ],*/
 
     ],
 
@@ -91,9 +91,14 @@ return [
         // ],
 
         // O mesmo vale para este!
-        'administrador' => [
+        'administrador' => [ // nome do provider, tem que ser o mesmo do guard
+            'driver' => 'eloquent', // tipo de driver, pode ser eloquent ou database, o eloquent é mais fácil de usar, pois ele já tem a ligação com o model, e o database é mais manual, onde tem que especificar a tabela e as colunas
+            'model' => App\Models\Admin::class, // model que representa a tabela do banco de dados, tem que ser o mesmo do provider
+        ],
+
+        'vendedor' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
+            'model' => App\Models\Vendedor::class,
         ],
     ],
 

@@ -34,10 +34,10 @@ return [
     |
     */
 
-    //'guard' => ['web'],
+    'guard' => ['web'],
 
     // Vamos primeiro tentar esses guards para depois autentificar pelo bearer do header da reqiuisição
-    'guard' => ['admin','vendedor'],
+    //'guard' => ['admin','vendedor'],
 
     /*
     |--------------------------------------------------------------------------

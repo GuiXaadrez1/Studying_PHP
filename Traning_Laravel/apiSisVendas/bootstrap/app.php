@@ -16,7 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
 
         // Diz ao Laravel: "Se não estiver logado, mande para admin.login"
-        $middleware->redirectGuestsTo(function ($request) {
+        /*s$middleware->redirectGuestsTo(function ($request) {
             
             // Se a URL contiver 'adm', manda para o login do admin
             if ($request->is('adm/*')) {
@@ -25,7 +25,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
             // Se for funcionário, mandaria para outra
             //  return route('funcionario.login'); // ainda nao implentei, vai dar erro!
-        });
+        });*/
 
         // nosso middleware para funcionar pertence ao grupo 'api', isto é...
         // todos os nossos caminhos tem que ter o prefixo api
@@ -37,8 +37,8 @@ return Application::configure(basePath: dirname(__DIR__))
 
     })
     ->withExceptions(function (Exceptions $exceptions): void {
+        
         // Aqui colocamos as excessões lançadas pelo nosso midleware no laravel
-
         $exceptions->shouldRenderJsonWhen(function ($request, $e) {
             if ($request->is('api/*')) {
                 return true;

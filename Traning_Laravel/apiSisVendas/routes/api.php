@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 # importando as controllers para a nossa API
 use App\Http\Controllers\AdminController;
@@ -17,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });*/
 
+Route::get('/test', function(){
+    return response()->json(['ok' => true]);
+});
+
+
+// coloque o prefixo api para todas as rotas pois pertence ao grupo api, e o middleware de autentificação do sanctum só funciona para as rotas que tem esse prefixo
 Route::post('admin/login', [LoginController::class, 'store'])->name('login');
 
 // criando nossas rotas protegidas com o meddleware correto
@@ -71,5 +78,20 @@ Route::middleware('auth:admin')->prefix('adm')->group(function(){
 
 });
 
-// Criando Login para o middleware('auth:vedendor')
+// Criando Login para o middleware('auth:vedendor') -> Módulo dos Vedendores
 
+Route::post('seller/login', [LoginController::class, 'store'])->name('login');
+
+Route::middleware('auth:seller')->prefix('seller')->group(function(){
+
+    // dd(Auth::guard('vendedor')->user()); -> esta dando null
+
+    // rota para logout, preciso estar autenticado para deslogar
+    Route::post('/logout',[LoginController::class, 'logout'])->name('seller.logout');
+
+    
+    Route::get('/teste', function (Request $request) {
+        return $request->user();
+    });
+
+});
