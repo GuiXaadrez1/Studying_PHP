@@ -8,7 +8,8 @@ import ComponentUm from "./index";
 
 import ComponenteComProps from "../fundamentos_thow/index";
 
-
+// definido uma variável do tipo array de string, que é o tipo de dado esperado pelo nosso componente com props, que é o componente filho
+// lembrando que props são do tipo objeto! 
 const listaUsers:string[] = ['Ana','Bruno','Carlos','Daniel','Eduarda'];
 
 const ComponenteDois:React.FC = ():JSX.Element|ReactElement => {

@@ -16,17 +16,24 @@ Eles permitem que os componentes sejam dinâmicos e reutilizáveis,
 
 */
 
-
 // usando desestruturação de objetos e arrays no nosso props
-const ComponenteComProps = ({name}:listaUsersProps):JSX.Element|ReactElement =>{
+const ComponenteComProps:React.FC<listaUsersProps> = ({name}:listaUsersProps):JSX.Element|ReactElement =>{
 
     return(
         <div>
             {   /* AQUI ESTÁ O NOSSO JAVASCRIPT EXPRESSION */
 
+                // Lembrando que o método map é usado para iterar sobre um array
+                //  e retornar um novo array com os resultados da função aplicada 
+                // a cada elemento do array original.
+
+                // Neste caso estamos usando o map apenas para renderizar 
+                // os itens do array name, que é o nosso props, 
+                // e renderizando cada item do array em um elemento li.
+
                 name.map((item:string,index:number)=>{
                     return(
-                        <li> key={index} O nome do usuário é: {item}</li>
+                        <li key={index}> O nome do usuário é: {item.toUpperCase()}</li>
                     );
                 })
             }
@@ -37,4 +44,9 @@ const ComponenteComProps = ({name}:listaUsersProps):JSX.Element|ReactElement =>{
 
 export default ComponenteComProps;
 
-// Explicação: O componente acima está recebendo props do tipo array e renderizando os itens do array usando map
+// Explicação: O componente acima está recebendo props do tipo array e 
+// renderizando os itens do array usando map 
+// o map basicamente retorna um novo array com os resultados 
+// da lógica aplicada sobre a função anônima/arrow function ou callback function,
+// que é a função passada como argumento para o map,
+// aplicando em cada elemento do array original, e nesse caso, renderizando cada item do array em um elemento li.

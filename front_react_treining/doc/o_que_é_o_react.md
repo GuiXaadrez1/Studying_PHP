@@ -62,7 +62,7 @@ O DOM é uma API de programação que reflete o documento carregado. Toda vez qu
 
 - Renderização final: Atualizar o pixel na tela.
 
-Essess processos são custosos em termos de desempenho, especialmente em interfaces com alto volume de interações.
+Esses processos são custosos em termos de desempenho, especialmente em interfaces com alto volume de interações.
 
 Por isso, o React introduziu o Virtual DOM, que atua como uma camada de abstração e otimização sobre o DOM real.
 
@@ -114,7 +114,7 @@ export default saudar;
 
 // Outra forma de exportar um componente
 
-// lembrando que para cria rum componente, o nome dele ao criar um função que retorna um jsx 
+// lembrando que para cria um componente, o nome dele ao criar um função que retorna um jsx 
 // deve inicar com letrar maiúscula 
 export function Saudar():JSX.Element{
     return(

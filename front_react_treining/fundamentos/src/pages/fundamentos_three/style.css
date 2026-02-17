@@ -1,0 +1,12 @@
+/* Auemntando o Top do botão*/
+
+.btn{
+    display: inline-flex;
+
+    /*
+        margin: 10px 30px; -> Margin vertical 10px e horizontal 30px
+        margin: 10px 30px 50px 30px; -> Margin vertical 10px, horizontal 30px e bottom(inferior) 50px
+        margin: 10px 30px 50px 30px; -> Margin top(superior) 10px, right(direita) 30px, bottom 50px e left(esquerda) 30px
+    */
+    margin: 10px 30px 1px; 
+}

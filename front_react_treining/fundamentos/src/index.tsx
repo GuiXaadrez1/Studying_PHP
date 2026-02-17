@@ -19,6 +19,7 @@ import ReactDOM from 'react-dom/client';
 
 // importando componentes criados no pacote fundamentos_one
 import ComponenteDois from './pages/fundamento_one/indexCPthow';
+import Botton from './pages/fundamentos_three/index';
 
 // não sei o que é 
 import reportWebVitals from './reportWebVitals';
@@ -34,6 +35,7 @@ root.render(
     {/*   comentando componete <App/> */} 
     {/*<Home/>*/}
     <ComponenteDois/>
+    <Botton/>
   </React.StrictMode>
 );
 
