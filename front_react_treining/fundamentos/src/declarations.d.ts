@@ -1,6 +1,6 @@
-// Como o typescript por padrão não reconhecer arquivos de extensões que não são
-// padrão da linguagem como: .js, .jsx, .ts, .tsx
-// devemos fazer configurações || criar módulos para que ele possa reconhecer 
+// Como o typescript por padrão não reconhecer arquivos de extensões 
+// que não são padrão da linguagem como: .js, .jsx, .ts, .tsx
+// devemos fazer configurações ou criar módulos para que ele possa reconhecer 
 // estes arquivos
 
 declare module '*.svg' {

@@ -35,8 +35,11 @@ const Button = () => {
     // definindo a variável de estado count e a função setCount para atualizar o valor de count
     const [count, setCount] = useState(0);
 
+    const [countMinusClicks, setCountMinusClicks] = useState(0);
+    const [countPlusClicks, setCountPlusClicks] = useState(0);
+
     /*
-        handleClick é a função que será chamada quando o botão for clicado
+        handleClick é a função que será chamada (callback) quando o botão for clicado
 
         handle -> Siginifica manipulador,
         Clcik -> Significa clique
@@ -46,10 +49,12 @@ const Button = () => {
     
     const handlePlusClick = () => {
         setCount(count + 1);
+        setCountPlusClicks(countPlusClicks + 1);
     }  
 
     const handleMinusClick = () => {
         setCount(count - 1);
+        setCountMinusClicks(countMinusClicks + 1);
     }   
     
     return (
@@ -77,6 +82,8 @@ const Button = () => {
             <div>
                 {/* A contagem vai zerar apenas quando renderizar novamente a página */}
                 <p>Contagem de Clicks: {count}</p>
+                <p>Clicks positivos: {countPlusClicks}</p>
+                <p>Clicks negativos: {countMinusClicks}</p>
             </div>
 
         </>
