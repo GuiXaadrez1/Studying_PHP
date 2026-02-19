@@ -56,7 +56,7 @@ const MapInListNumbers:React.FC<ListNumbersProps> = ({ numbers }):JSX.Element =>
             }> {
                 // Aqui esta o nosso JavaScript Expression! 
 
-                numbers.map((item:number,index:number)=>{
+                numbers.map((item:number,index:number):JSX.Element=>{
                     return(
                         <li key={index}> O número é: {item * 10}</li>
                     );
