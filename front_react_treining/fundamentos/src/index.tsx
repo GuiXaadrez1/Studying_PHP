@@ -40,6 +40,10 @@ import ValueContext from './pages/fundamentos_hooks/3_2-ValueContext';
 // useReducer
 import Contador from './pages/fundamentos_hooks/4-useReduce';
 
+// Hook Custom
+import ComponenteUseHookCustom from './pages/fundamentos_hooks/5_1 - Componente_Custom_hook';
+
+
 // importando o arquivo reportWebVitals para medir o desempenho da aplicação
 import reportWebVitals from './reportWebVitals';
 
@@ -84,6 +88,10 @@ root.render(
 
       {/* useReduce */}
       <Contador/>
+
+      {/* Custom Hooks*/}
+      <ComponenteUseHookCustom/>
+      
     </React.StrictMode> 
   </>
 );
