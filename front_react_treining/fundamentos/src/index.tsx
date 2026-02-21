@@ -43,6 +43,17 @@ import Contador from './pages/fundamentos_hooks/4-useReduce';
 // Hook Custom
 import ComponenteUseHookCustom from './pages/fundamentos_hooks/5_1 - Componente_Custom_hook';
 
+// Children, o prop especial do REACT
+import UsingChildren from './pages/fundamentos_seven/useChildrenConception';
+
+// Sincronizando estados (useState/useEffect) com props
+
+import PerfilUser from './pages/fundamentos_seven/sincroniaEstadosProps';
+
+// HOOK USE MEMO AND USE CALLBACK
+import HeavyCalculation from './pages/fundamentos_hooks/useMemo'; // useMemo
+import ContadorCallback from './pages/fundamentos_hooks/useCallBack'; // useCallBack
+
 
 // importando o arquivo reportWebVitals para medir o desempenho da aplicação
 import reportWebVitals from './reportWebVitals';
@@ -91,7 +102,19 @@ root.render(
 
       {/* Custom Hooks*/}
       <ComponenteUseHookCustom/>
+
+      <UsingChildren/>
+
+      {/* Sincronização com Props */}
+
+      {/* <PerfilUser 
+        userId={1} 
+      /> */}
+
+      <HeavyCalculation nm={6}/>
       
+      <ContadorCallback/>
+
     </React.StrictMode> 
   </>
 );
