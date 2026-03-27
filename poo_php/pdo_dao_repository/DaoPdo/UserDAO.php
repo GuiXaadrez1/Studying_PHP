@@ -7,7 +7,7 @@
     namespace Pdo\DaoPdo;
 
     # importando a classe de conexao com o banco de dados
-    use Pdo\DatabasePdo\BdConnection;; # apenas para tipagem
+    use Pdo\DatabasePdo\BdConnection; # apenas para tipagem
 
     /*
         Observao importante:
