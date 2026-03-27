@@ -71,7 +71,7 @@ I'll use the MVC + Singleton pattern in this project for educational purposes, w
 
 - Portguês-Brasil:
 
-rei usar o padrão MVC + Singleton neste projeto para fins didáticos, com o principal objetivo de entender os fundamentos da programação web. O MVC (Model-View-Controller) organiza a aplicação em três camadas: o Model gerencia os dados e a lógica de negócio, o View cuida da interface com o usuário, e o Controller atua como intermediário, processando as entradas e coordenando as outras camadas.  O Singleton será usado para gerenciar a conexão com o banco de dados, garantindo que apenas uma instância dessa conexão exista durante a execução do script, o que promove eficiência e centraliza o acesso ao banco.
+Irei usar o padrão MVC + Singleton neste projeto para fins didáticos, com o principal objetivo de entender os fundamentos da programação web. O MVC (Model-View-Controller) organiza a aplicação em três camadas: o Model gerencia os dados e a lógica de negócio, o View cuida da interface com o usuário, e o Controller atua como intermediário, processando as entradas e coordenando as outras camadas.  O Singleton será usado para gerenciar a conexão com o banco de dados, garantindo que apenas uma instância dessa conexão exista durante a execução do script, o que promove eficiência e centraliza o acesso ao banco.
 
 
 
