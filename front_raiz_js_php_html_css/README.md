@@ -33,7 +33,7 @@ This project is built on the Client-Server Architecture, specifically focusing o
 
 - Singleton Pattern: Ensures a single, efficient connection to the database (MySQL/PostgreSQL), preventing resource waste.
 
-## Visão Geral da Arquitetura (Portiguês)
+## Visão Geral da Arquitetura (Português)
 
 Este projeto é construído sobre a Arquitetura Cliente-Servidor, focando especificamente no Desenvolvimento Server-Side. A lógica central é estruturada utilizando o padrão MVC (Model-View-Controller), reforçado pelo padrão de projeto Singleton para o gerenciamento do banco de dados.
 
@@ -137,7 +137,7 @@ The Singleton design pattern is used to manage the database connection.  It ensu
 
 The UserModel communicates with this Singleton by calling Database::getInstance()->getConnection(), which returns the single, shared PDO connection object. This prevents multiple, redundant database connections and centralizes connection management.
 
-- Portiguês-Brasil
+- Português-Brasil
 
 A arquitetura MVC que você usará é um padrão de design padrão para aplicações web. O Modelo gerencia os dados e a lógica de negócios, interagindo com o banco de dados.  
 
