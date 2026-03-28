@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "../front_raiz_js_php_html_css/register-me"
+        }
+    },
+    "authors": [
+        {
+            "name": "Guixaadrez1",
+            "email": "guilhermehenrique.a.dasilva12@gmail.com"
+        }
+    ],
+    "require": {}
+}

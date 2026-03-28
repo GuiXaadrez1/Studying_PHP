@@ -1,0 +1,64 @@
+/* importanto Font Open Snas do Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Resetando página html -> o próprio documento DOM */
+* {
+    
+    /* 
+        margins externa ao container distância entre um container e outro
+        
+        - quando colocamos um atributo: todos os lados
+
+        - quando colocamos dois atributos, definimos: vertical | horizontal
+
+        - quando colocamos três atributos, definimos: topo | horizontal | inferior
+
+        - quando colocamos quatro atributos, definimos: topo | direita | inferior | esquerda
+    */
+    margin: 0;
+    
+    /* 
+        define uma a distância entre o conteúdo de um elemento e suas bordas
+
+        - quando colocamos um atributo: todos os lados
+
+        - quando colocamos dois atributos, definimos: vertical | horizontal
+
+        - quando colocamos três atributos, definimos: superior | horizontal | inferior
+
+        - quando colocamos quatro atributos, definimos:  superior | direita | inferior | esquerda
+    */
+    padding: 0;  
+    
+    /*
+        A propriedade CSS box-sizing define como a largura e altura total de um elemento
+        são calculadas. Aceita dois valores:
+
+        - content-box (padrão): A width e height se aplicam apenas ao conteúdo. 
+        Bordas e padding são somados por fora, aumentando o tamanho final do elemento.
+
+        Exemplo: um elemento com width: 350px e border: 10px terá 370px de largura total.
+
+        - border-box: A width e height incluem o conteúdo, padding e borda. O tamanho final
+        do elemento respeita o valor definido.
+
+        Exemplo: um elemento com width: 350px e border: 10px terá 350px de largura total, 
+        com a área de conteúdo sendo 330px.
+
+        Usar box-sizing: border-box facilita muito o dimensionamento de elementos e evita
+        erros comuns no layout. É o comportamento padrão de elementos como
+             <table>, <button> e <input>.
+
+    */
+    box-sizing: border-box;
+
+    /*
+        Define a fonte da página
+    */
+    font-family: "Open Sans",serif;
+};
+
+
+p{
+    color: #124111;
+}

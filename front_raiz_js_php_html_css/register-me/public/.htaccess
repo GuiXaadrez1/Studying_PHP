@@ -1,2 +1,8 @@
-# vamos configurar um domain name (nome de dominio) no nosso host virtual do sistema operacional
-# em Windows/system32/drivers/etc/host.ini
+# vamos configurar um domain name (nome de dominio) no nosso host virtual 
+# do sistema operacional em Windows/system32/drivers/etc/host.ini
+
+# Aqui fica o nosso arquivo de configuração do Apache definimos
+# a segurança do site e também a velocidade de carregamento do site
+# permitem definir regras em um diretório e em todos os seus subdiretórios.
+
+# ele é o primeiro arquivo que o servidor lê quando algum visitante acessa seu site.
