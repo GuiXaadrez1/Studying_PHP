@@ -7,7 +7,7 @@
     # é mais interessante usar require_onde 
     namespace View;
 
-    require_once './includes/head.php';
+    require_once "./includes/head.php";
 ?>  
     <!--- Container que define o corpo da página! É aqui onde a mágica acontece--->
     <body>
