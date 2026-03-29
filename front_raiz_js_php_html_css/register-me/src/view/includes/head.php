@@ -14,6 +14,6 @@
         <title>Register-me</title>
 
         <!-- Definindo Links para os estilos CSS que iremos usar -->
-        <link rel="stylesheet" href="/Studying_PHP/front_raiz_js_php_html_css/register-me/public/assets/css/login.css">
+        <link rel="stylesheet" href="<?= BASE_URL_VIEW ?>css/login.css">
 
     </head>

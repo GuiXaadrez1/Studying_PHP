@@ -1,11 +1,21 @@
 <?php
     
     # Aqui vai ficar nossas contantes que podem ser mescladas com a .env
-    namespace config;
-    use App\config\database\ConnectionSingleton;
     
-    // define("BASE_URL", "http://localhost/front_raiz_js_php_html_css/register-me/");
+    # 1. Namespace sempre no topo
+    namespace config;
 
-    # iniciando uma Sessãos
+    # 2. Imports
+    use App\config\database\ConnectionSingleton;
+
+    # 3. Configurações e Sessão (Antes de qualquer HTML)
     session_start(); 
+
+    # Definido constantes: 
+
+    # Se usar const, ela fica como config\BASE_URL_VIEW
+    # const BASE_URL_VIEW = "/Studying_PHP/front_raiz_js_php_html_css/register-me/public/assets/css/";
+
+    define("BASE_URL_VIEW", "/Studying_PHP/front_raiz_js_php_html_css/register-me/public/assets/");
+
 ?>

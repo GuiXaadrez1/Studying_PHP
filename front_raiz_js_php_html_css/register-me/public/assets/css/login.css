@@ -58,7 +58,106 @@
     font-family: "Open Sans",serif;
 }
 
+/*p{
+    color: #000000;
+}*/
 
-p{
-    color: #ff0000;
+/* personalizando o corpo do documento HTML*/
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #c8cbd0, #186aed);
+    color: #333;
+}
+
+/* personalizando o container principal*/
+.container{
+    margin: 0 15px;
+}
+
+/* personalizando a fiv do formulário*/
+.form-box{
+    width:100%;
+    max-width:450px;
+    padding:30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display:none;
+}
+
+.form-box.active{
+    display:block;
+}
+
+/* Acessando diretamente as tags h2 e personalizando*/
+h2{
+    font-size: 34px;
+    text-align: center;
+    margin-bottom:20px;
+}
+
+/* Acessando diretamente as tags input e select e personalizando*/
+input{
+    width:100%;
+    padding: 12px;
+    background:#eee;
+    border-radius:6px;
+    border:none;
+    outline:none;
+    font-size:16px;
+    color:#333;
+    margin-bottom:20px;
+}
+
+select{
+    
+    width:100%;
+    padding: 12px;
+    background:#eee;
+    border-radius:6px;
+    border:none;
+    outline:none;
+    font-size:16px;
+    color:#333;
+    margin-bottom:20px; 
+}
+
+/* Acessando diretamente um button e personalizando */
+
+button{
+    width:100%;
+    padding:12px;
+    background: #7494ec;
+    border-radius:6px;
+    border:none;
+    font-size:16px;
+    color:#fff;
+    font-weight: 500;
+    margin-bottom:20px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+/* Colocando efeito de hover no botão */
+button:hover{
+    background: #5a7bc8;
+}
+
+span{
+    font-size: 14.5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+span a {
+    cursor: pointer;
+    color: rgb(15,1,120);
+    text-decoration: none;
+}
+
+span a:hover{
+    text-decoration: underline;
 }
