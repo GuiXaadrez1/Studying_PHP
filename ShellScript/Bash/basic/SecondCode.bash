@@ -16,3 +16,15 @@
 # ls -l -> exibe permissoes dos arquivos (exibe as strings de permissao no inicio)
 
 # ls -1 -> exibe tudo em uma única coluna
+
+
+# criando um arquivo de log para aprendermos sobre string de permissoes
+
+touch BashBash.sh 
+
+ls  -a -l > strings_permissions.txt >&1
+
+# Dando pemissao de execucao para um grupo de usuario e para o usuario!
+chmod u=rwx BashBash.sh
+chmod g=rwx BashBash.sh
+

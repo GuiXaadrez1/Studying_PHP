@@ -6,7 +6,8 @@
 # pwd -> obtem o diretório atual
 # clear -> limpa as informações exibida pelo terminal 
 # reset -> reseta o terminal
-# cat -> exibe o contéudo de um arquivo ou concatenar. 
+# cat -> exibe o contéudo de um arquivo ou concatenar.
+# touch  -> cria arquivos -> podem ter extensao: .txt .py .bash .sh... Como você quiser
 # echo -> Usamos para imprimir mensagens, exibir no terminal valores em variáveis normais ou em variáveis de ambiente
 # echo -e -> usamos para interpretar caracteres especiais... como \n (quebra de linha) e exibicao de cores
 

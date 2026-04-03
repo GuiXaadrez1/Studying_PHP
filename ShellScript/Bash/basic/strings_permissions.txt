@@ -1,0 +1,12 @@
+total 25
+drwxr-xr-x 1 GuiGui 197121    0 Apr  3 20:35 .
+drwxr-xr-x 1 GuiGui 197121    0 Apr  3 18:36 ..
+-rw-r--r-- 1 GuiGui 197121    0 Apr  3 20:35 BashBash.sh
+-rwxr-xr-x 1 GuiGui 197121 1492 Apr  3 19:53 FirstCode.bash
+-rw-r--r-- 1 GuiGui 197121    0 Apr  3 18:31 FourthCode.bash
+-rwxr-xr-x 1 GuiGui 197121  892 Apr  3 20:35 SecondCode.bash
+-rw-r--r-- 1 GuiGui 197121 2234 Apr  3 20:34 strings_permissions.md
+-rw-r--r-- 1 GuiGui 197121    0 Apr  3 20:35 strings_permissions.txt
+-rwxr-xr-x 1 GuiGui 197121   72 Apr  3 20:26 teste
+-rw-r--r-- 1 GuiGui 197121    0 Apr  3 20:29 teste.py
+-rw-r--r-- 1 GuiGui 197121 1471 Apr  3 18:19 ThirdCode.bash

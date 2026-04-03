@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "hellow Word via criacao vi nome_arquivo_shellScript"
