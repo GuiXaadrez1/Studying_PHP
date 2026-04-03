@@ -36,6 +36,12 @@ echo "Path: "$(cd ../..; pwd)
 # Você verá o caminho lá de cima no terminal, 
 # mas continuará na mesma pasta de antes.
 
-
 # Agora eu vou mostrar a pasta raiz (root)
 echo "Path Root: "$(cd /;pwd)
+
+# Podemos literalmente nos navegar usando a variável de ambiente $HOME
+echo "Path Home:" $HOME
+
+# Agora vou mostrar a pasta downloads
+
+echo "Path Downloads: "$(cd ~/Downloads)

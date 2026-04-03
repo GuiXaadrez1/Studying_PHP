@@ -5,7 +5,10 @@
 # ls -> lista elementos do diretório atual
 # pwd -> obtem o diretório atual
 # clear -> limpa as informações exibida pelo terminal 
-# reset -> reseta o terminal 
+# reset -> reseta o terminal
+# cat -> exibe o contéudo de um arquivo ou concatenar. 
+# echo -> Usamos para imprimir mensagens, exibir no terminal valores em variáveis normais ou em variáveis de ambiente
+# echo -e -> usamos para interpretar caracteres especiais... como \n (quebra de linha) e exibicao de cores
 
 # REGRAS DE OURO PARA CRIAR VARIÁVEIS NO BASH
 
