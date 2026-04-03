@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# COMANDOS INICIAS PARA APRENDER
+
 # ls -> lista elementos do diretório atual
 # pwd -> obtem o diretório atual
 # clear -> limpa as informações exibida pelo terminal 
