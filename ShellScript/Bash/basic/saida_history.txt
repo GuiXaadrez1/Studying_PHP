@@ -1,5 +1,0 @@
-    2  ARQUIVO_LOG="saida_history.txt"
-    3  # 3. Lê o conteúdo do arquivo de histórico para a memória da sessão atual
-    4  history -r
-    5  # pega os ultimos cinco comandos e salve no arquivo.txt
-    6  history | tail -5 > saida_history.txt 2>&1
