@@ -1,6 +1,14 @@
 #!/bin/bash
 
-o=+ # 
+#
+#
+# seq.sh - Emulação do comando seq (Sequence) do Linux em Bash
+#
+# O comando seq recebe dois numéros e mostra na saída padrão todos os números
+# existentes entre eles, inclusive. Essa sequÊncia está pronta para ser usada pelo comando
+# FOR. Caso o número inicial , é urilizando o valor 1
+
+o=+ # valor que a operação pode ser feita. Pode ser incremental ou decremental + ou - 
 a=1 #  valor inicial padrão
 
 z=${1:-1} # z rescebe o valor que o usuário passa ou entao rescebe por padrao o valor 1
