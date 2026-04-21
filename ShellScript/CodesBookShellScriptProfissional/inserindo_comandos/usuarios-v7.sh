@@ -143,7 +143,7 @@ move=$(cd $ROOT_TO_ETC; pwd)
 printf "Movendo-se para o diretório: $move\n\n"
 
 # realiza a listagem de usuários logados
-lista=$(cut -d : -f 1,5 $ROOT_TO_ETC/passwd)
+lista=$(cut -d : -f 1,5 $move/passwd)
 
 # tirando aqule monte de if da sexta versao
 
