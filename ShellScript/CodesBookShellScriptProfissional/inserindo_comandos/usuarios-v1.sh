@@ -1,5 +1,5 @@
 #!/bin/bash
-# usuarios-v1.sh
+# usurios.sh
 #
 # Vamos aprender a colocar opções de linha de comando em nossos scripts.
 #
@@ -11,7 +11,7 @@
 # logins, senhas (geralmente criptografadas), IDs de usuário (UIDs), IDs de grupo (GIDs), 
 # diretórios home e shells de login. 
 # 
-# Autor: Guilherme Henrique - Data: 2024-06-01
+# Autor: Guilherme Henrique - Data: 2024-04-01
 
 ROOT_TO_ETC="/etc"
 

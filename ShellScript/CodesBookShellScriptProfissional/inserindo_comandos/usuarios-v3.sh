@@ -1,5 +1,5 @@
 #!/bin/bash
-# usuarios-v1.sh
+# usurios.sh
 #
 # Vamos aprender a colocar opções de linha de comando em nossos scripts.
 #
@@ -15,7 +15,7 @@
 # Versão 2: Adicionando suporte ao comando -h e -V
 # Versão 3: Refatorando para usar case
 #
-# Autor: Guilherme Henrique - Data: 2024-06-01
+# Autor: Guilherme Henrique - Data: 2024-04-01
 
 # Colocando flags...
 

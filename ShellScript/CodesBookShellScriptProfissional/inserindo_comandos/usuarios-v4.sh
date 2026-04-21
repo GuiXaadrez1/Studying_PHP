@@ -1,5 +1,5 @@
 #!/bin/bash
-# usuarios-v1.sh
+# usurios.sh
 #
 # Vamos aprender a colocar opções de linha de comando em nossos scripts.
 #
@@ -18,7 +18,7 @@
 #           -V extraido diretamente dos cabeçalhos,
 #           adicionando as opções alternativas --help e --version
 #
-# Autor: Guilherme Henrique - Data: 2024-06-01
+# Autor: Guilherme Henrique - Data: 2024-04-01
 
 # Colocando flags...
 
@@ -72,5 +72,5 @@ esac
 
 move=$(cd $ROOT_TO_ETC; pwd) 
 
-cut -d : -f 1,5 $move/passwd
+cut -d ":" -f 1,5 $move/passwd
 
