@@ -4,6 +4,7 @@ $str="scripts scritps"
 # como $str é uma string, o PowerShell já infere automaticamente que é um objeto System.String do .NET
 # podemos acessar diretamente os métodos de instância sem precisar referenciar a classe [string]
 # diferente do echo (alias de Write-Output), o Write-Host é o cmdlet nativo que avalia expressões diretamente no stdout
+
 Write-Host $str.ToUpper()  # método de instância: converte todos os caracteres para maiúsculas
 Write-Host $str.ToLower()  # método de instância: converte todos os caracteres para minúsculas
 Write-Host $str.Length     # propriedade de instância: retorna o total de caracteres da string
